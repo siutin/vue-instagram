@@ -24,13 +24,18 @@ export default {
 .grid {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid > div.item {
-    margin: 0;
-    text-align: center;
-    font-size: 30px;
-    
+  text-align: center;
+  font-size: 30px;
+  position: relative;
+  flex-basis: calc(33.333% - 20px);
+  margin: 10px;
+  border: 1px solid #aaaaaa;
+  box-sizing: border-box;
 }
 
 .grid > div.item:before {
@@ -51,11 +56,11 @@ export default {
   }
 
   .grid > div.item:nth-child(odd) {
-      background-color: #ffff11;
+      background-color: #eeeeee;
   }
 
   .grid > div.item:nth-child(even) {
-      background-color: #ff11ff;
+      background-color: #eeeeee;
   }  
 }
 
@@ -70,11 +75,11 @@ export default {
   }
 
   .grid > div.item:nth-child(2n+1) {
-      background-color: #ffff11;
+      background-color: #eeeeee;
   }
 
   .grid > div.item:nth-child(2n+2) {
-      background-color: #ff11ff;
+      background-color: #eeeeee;
   }  
 }
 
@@ -89,11 +94,11 @@ export default {
   }
 
   .grid > div.item:nth-child(odd) {
-      background-color: #ffff11;
+      background-color: #eeeeee;
   }
 
   .grid > div.item:nth-child(even) {
-      background-color: #ff11ff;
+      background-color: #eeeeee;
   }  
 }
 
