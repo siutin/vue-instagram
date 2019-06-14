@@ -1,22 +1,21 @@
 <template>
     <div class="grid">
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
-        <div class="item">5</div>
-        <div class="item">6</div>
-        <div class="item">7</div>
-        <div class="item">8</div>
-        <div class="item">9</div>
+        <template v-for="i in range(1, 18)" >
+          <grid-item :model="String(i)" :key="i">            
+          </grid-item>
+        </template>
     </div>
 </template>
 
 <script>
+import GridItem from './GridItem'
 export default {
+    components: { GridItem },
     name: 'Grid',
-    props: {
-        msg: String
+    methods: {
+      range (start, count) {
+        return Array(count).fill(start).map((x, y) => x + y)
+      }
     }
 }
 </script>
