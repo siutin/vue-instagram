@@ -1,7 +1,7 @@
 <template>
-    <div class="item" :style="style">
+    <div class="item">
       <div class="content">
-        {{ model }}
+        <div v-if="isReady" class="img" :style="{ backgroundImage: `url(https://picsum.photos/id/${id}/${width})` }"></div>
       </div>
     </div>
 </template>
@@ -10,13 +10,27 @@
 export default {
     name: 'GridItem',
     props: {
+        id: Number,
         model: String,
         color: String
     },
-    computed: {
-      style () {
-        return { }
+    data () {
+      return {
+        width: 0,        
       }
+    },
+    computed: {
+      isReady () {
+        return this.width > 0
+      }
+    },
+    methods: {
+      calculateWidth () {
+        return this.$el.clientWidth
+      }
+    },
+    mounted () {
+      this.width = this.calculateWidth()
     }
 }
 </script>
@@ -35,5 +49,14 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
+ }
+ div.img {
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
  }
 </style>
