@@ -32,7 +32,6 @@ export default {
   text-align: center;
   font-size: 30px;
   position: relative;
-  flex-basis: calc(33.333% - 20px);
   margin: 10px;
   border: 1px solid #aaaaaa;
   box-sizing: border-box;
@@ -52,7 +51,7 @@ export default {
 @media (min-width: 768px) {
   
   .grid > div.item {
-    width: calc(33.3%);  
+    flex-basis: calc(33.333% - 20px);
   }
 
   .grid > div.item:nth-child(odd) {
@@ -71,7 +70,7 @@ export default {
 
 @media (min-width: 481px) and (max-width: 767px) {
   .grid > div.item {
-      width: calc(50%);
+    flex-basis: calc(50% - 20px);
   }
 
   .grid > div.item:nth-child(2n+1) {
@@ -89,8 +88,7 @@ export default {
 */
 @media (max-width: 480px) {
   .grid > div.item {
-      width: calc(100%);
-      
+    flex-basis: calc(100% - 20px);
   }
 
   .grid > div.item:nth-child(odd) {
