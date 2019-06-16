@@ -11,9 +11,7 @@ export default {
     name: 'GridItem',
     components: { ThumbnailItem },
     props: {
-        id: Number,
-        model: String,
-        color: String
+        id: Number
     },
     data () {
       return {

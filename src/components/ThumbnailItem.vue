@@ -13,9 +13,7 @@ export default {
     name: 'ThumbnailItem',
     props: {
         id: Number,
-        width: Number,
-        model: String,
-        color: String
+        width: Number
     },
     data () {
       return { }

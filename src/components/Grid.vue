@@ -1,7 +1,7 @@
 <template>
     <div class="grid">
         <template v-for="i in range(1, 18)" >
-          <grid-item :model="String(i)" :id="i" :key="i">            
+          <grid-item :id="i" :key="i">            
           </grid-item>
         </template>
     </div>
