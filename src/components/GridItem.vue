@@ -1,15 +1,13 @@
 <template>
     <div class="item">
       <div class="content">
-       <thumbnail-item v-if="isReady" :id="id" :width="width"></thumbnail-item>
+       <slot v-bind:id="id" v-bind:width="width" v-bind:isReady="isReady"></slot>
       </div>
     </div>
 </template>
 <script>
-import ThumbnailItem from './ThumbnailItem'
 export default {
     name: 'GridItem',
-    components: { ThumbnailItem },
     props: {
         id: Number
     },

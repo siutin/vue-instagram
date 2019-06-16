@@ -1,7 +1,8 @@
 <template>
     <div class="grid">
         <template v-for="i in range(1, 18)" >
-          <grid-item :id="i" :key="i">            
+          <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
+            <thumbnail-item v-if="isReady" :id="i" :width="width"></thumbnail-item>
           </grid-item>
         </template>
     </div>
@@ -9,8 +10,10 @@
 
 <script>
 import GridItem from './GridItem'
+import ThumbnailItem from './ThumbnailItem'
+
 export default {
-    components: { GridItem },
+    components: { GridItem, ThumbnailItem },
     name: 'Grid',
     methods: {
       range (start, count) {
