@@ -24,8 +24,6 @@ export default {
 .grid {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
 }
 
 .grid > div.item {
@@ -47,7 +45,6 @@ export default {
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px
 */
-
 @media (min-width: 768px) {
   
   .grid > div.item {
@@ -67,7 +64,6 @@ export default {
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 */
-
 @media (min-width: 481px) and (max-width: 767px) {
   .grid > div.item {
     flex-basis: calc(50% - 20px);
