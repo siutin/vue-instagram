@@ -1,12 +1,19 @@
 <template>
     <div class="item">
-      <div class="content">
-        <div v-if="isReady" class="img" :style="{ backgroundImage: `url(https://picsum.photos/id/${id}/${width})` }"></div>
+      <div class="content">             
+        <lazy-component @show="handler">
+          <div class="loading" v-show="isLoading"></div>
+          <img 
+            class="img" 
+            v-if="isReady"
+            v-lazy="getBackgroundImage(id, width)"
+          />
+        </lazy-component>
       </div>
     </div>
 </template>
-
 <script>
+
 export default {
     name: 'GridItem',
     props: {
@@ -16,7 +23,8 @@ export default {
     },
     data () {
       return {
-        width: 0,        
+        width: 0,
+        isLoading: true
       }
     },
     computed: {
@@ -27,6 +35,11 @@ export default {
     methods: {
       calculateWidth () {
         return this.$el.clientWidth
+      },
+      getBackgroundImage (id, width) {
+        return `https://picsum.photos/id/${id}/${width}`
+      },
+      handler (component) {
       }
     },
     mounted () {
@@ -50,7 +63,7 @@ export default {
   right: 0;
   bottom: 0;
  }
- div.img {
+ .img {
    height: 100%;
    width: 100%;
    position: absolute;
@@ -59,4 +72,38 @@ export default {
    right: 0;
    bottom: 0;
  }
+ .loading {
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: 25%;
+   background-image: url(../assets/loading.gif);   
+   
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+ }
+
+ img[lazy='loaded'] {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: ease-out; 
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 </style>
