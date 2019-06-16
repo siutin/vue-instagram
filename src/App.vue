@@ -81,26 +81,45 @@ export default {
 }
 
 #dialog {
-  max-width: 1024px;
-  max-height: 1024px;  
   background-color: #eeeeee;
   margin-left: auto;
   margin-right: auto;
   padding: 0.2em;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 @media (orientation: landscape) {
-  #dialog {
-    width: 80vh;
+  #dialog-image {
+    max-width: 1024px;
+    max-height: 1024px;
+    width: 60vh;
     height: 60vh;
   }
 }
 
 @media (orientation: portrait) {
-  #dialog {
-    width: 80vw;
+  #dialog-image {
+    max-width: 1024px;
+    max-height: 1024px;
+    width: 60vw;
     height: 60vw;
   }
+}
+
+#dialog-image {
+  margin: 2.5px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#dialog-content {
+  margin: 2.5px;
+  width: 335px;
+  text-align: left;
 }
 }
 
