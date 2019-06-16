@@ -4,14 +4,17 @@
       <Grid>
          <template v-for="i in range(1, 90)">
           <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
-            <thumbnail-item v-if="isReady" :id="i" :width="width" v-on:click.native="clickOnTumbnail"></thumbnail-item>
+            <thumbnail-item v-if="isReady" :id="id" :width="width" v-on:click.native="clickOnTumbnail($event, id)"></thumbnail-item>
           </grid-item>
         </template>
       </Grid>
     </div>
     <div id="cover" v-on:click="closeDialog" v-show="isShowDialog"></div>
     <div id="dialog-container" class="fade" v-on:click="closeDialog" v-show="isShowDialog">
-      <div id="dialog" v-on:click="closeDialog"></div>
+      <div id="dialog" v-on:click="closeDialog">
+        <div id="dialog-image" :style="{ backgroundImage: dialogImage }"></div>
+        <div id="dialog-content"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,16 +30,23 @@ export default {
   },
   data () {
     return {
-      isShowDialog: false
+      isShowDialog: false,
+      dialogImage: ''
     }
   },
   methods: {
     range (start, count) {
       return Array(count).fill(start).map((x, y) => x + y)
     },
-    clickOnTumbnail (e) {
-      console.log("clickOnTumbnail")
+    getBackgroundImage (id, width) {
+      return `https://picsum.photos/id/${id}/${width}`
+    },
+    clickOnTumbnail (e, id) {
+      console.log(`clickOnTumbnail - id: ${id}`)
+      window.myEvent = e
+      console.log(e)
       this.isShowDialog = true
+      this.dialogImage = `url(${this.getBackgroundImage(id, 1024)})`
     },
     closeDialog(e) {
       console.log("closeDialog")
