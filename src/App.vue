@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Grid/>
+    <div id="container">
+      <Grid/>   
+    </div>
   </div>
 </template>
 
@@ -27,5 +29,11 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+  }
+
+  #container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>
