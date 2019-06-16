@@ -71,11 +71,27 @@ export default {
 }
 
 #dialog {
-  width: 500px;
-  height: 500px;
+  max-width: 1024px;
+  max-height: 1024px;  
   background-color: #eeeeee;
   margin-left: auto;
   margin-right: auto;
+  padding: 0.2em;
+}
+
+@media (orientation: landscape) {
+  #dialog {
+    width: 80vh;
+    height: 60vh;
+  }
+}
+
+@media (orientation: portrait) {
+  #dialog {
+    width: 80vw;
+    height: 60vw;
+  }
+}
 }
 
 .grid > div.item {
