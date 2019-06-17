@@ -281,6 +281,7 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 11pt;
 
     /* retain dialog position */
     height: 100vh;
