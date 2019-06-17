@@ -175,11 +175,12 @@ export default {
   display: flex;
   flex-direction: row-reverse;
 
-  background-color: rebeccapurple;
-
   position: relative;
   top: 0;
   left: 0;
+  
+  background-color: white;
+
   border-bottom: 1px solid #eeeeee;
   -webkit-box-shadow: 0px 2px 5px -5px rgba(0,0,0,0.45);
   -moz-box-shadow: 0px 2px 5px -5px rgba(0,0,0,0.45);
@@ -199,7 +200,7 @@ export default {
   right: 0;
   bottom: calc(50px + 0.3em);
 
-  background-color: #fff;
+  background-color: white;
 }
 
 #message-form {
@@ -210,7 +211,7 @@ export default {
   left: 0;
   right: 0;
 
-  background-color: chartreuse;
+  background-color: white;
 }
 
 #message-form > form {
