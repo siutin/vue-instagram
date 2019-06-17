@@ -13,7 +13,50 @@
     <div id="dialog-container" class="fade" v-on:click="closeDialog" v-show="isShowDialog">
       <div id="dialog" v-on:click="closeDialog">
         <div id="dialog-image" :style="{ backgroundImage: dialogImage }"></div>
-        <div id="dialog-content"></div>
+        <div id="dialog-content">
+          <div id="profile">
+            <div class="icon"></div>
+          </div>
+          <div id="messages">
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+            <p>Hello World text</p>
+          </div>
+          <div id="message-form">
+            <form action="">
+              <input type="text" id="text" name="message[text]" />
+              <input type="submit" />
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -120,7 +163,79 @@ export default {
   margin: 2.5px;
   width: 335px;
   text-align: left;
+
+  position: relative;
 }
+
+#dialog-content > * {
+  padding-top: 5pt;
+}
+
+#profile {
+  padding: 5px;
+  height: 50px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  
+  background-color: rebeccapurple;
+
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#messages {
+  padding: 0.3em;
+  overflow-y: scroll;
+
+  position: absolute;
+  width: calc(100% - 0.6em);
+  height: calc(100% - 0.6em - 50px - 0.3em - 50px - 0.3em);
+  top: calc(50px + 0.3em);
+  left: 0;
+  right: 0;
+  bottom: calc(50px + 0.3em);
+
+  background-color: #fff;
+}
+
+#message-form {
+  height: 50px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; 
+
+  background-color: chartreuse;
+}
+
+#message-form > form > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#message-form > form, #message-form > form > input {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icon {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 1px #aaa;
+
+  background-image: url(https://thispersondoesnotexist.com/image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .grid > div.item {
