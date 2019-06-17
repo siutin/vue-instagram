@@ -127,7 +127,6 @@ export default {
   background-color: #eeeeee;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.2em;
 
   display: flex;
   flex-wrap: nowrap;
@@ -153,14 +152,12 @@ export default {
 }
 
 #dialog-image {
-  margin: 2.5px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 #dialog-content {
-  margin: 2.5px;
   width: 335px;
   text-align: left;
 
@@ -284,8 +281,6 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
 
     /* retain dialog position */
     height: 100vh;
