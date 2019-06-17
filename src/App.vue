@@ -212,6 +212,10 @@ export default {
   right: 0;
 
   background-color: white;
+
+  -webkit-box-shadow: 0px -2px 10px -4px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0px -2px 10px -4px rgba(0,0,0,0.45);
+  box-shadow: 0px -2px 10px -4px rgba(0,0,0,0.45);
 }
 
 #message-form > form {
@@ -247,7 +251,10 @@ export default {
 }
 
 .message-item {
-  padding: 1em 0em 1em 0;
+  padding: 1em 0em 1em 0;  
+}
+
+.message-item:not(:last-child) {
   border-bottom: 1px solid #eeeeee;
 }
 
