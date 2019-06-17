@@ -15,7 +15,7 @@
         <div id="dialog-image" :style="{ backgroundImage: dialogImage }"></div>
         <div id="dialog-content">
           <div id="profile">
-            <div class="icon"></div>
+            <div class="icon icon-normal" :style="{ backgroundImage: dialogIcon}"></div>
           </div>
           <div id="message-list">
             <div class="message-item">Hello World text</div>
@@ -78,7 +78,9 @@ export default {
   data () {
     return {
       isShowDialog: false,
-      dialogImage: ''
+      dialogImage: '',
+      dialogIcon: '',
+      dialogId: 0
     }
   },
   methods: {
@@ -88,17 +90,24 @@ export default {
     getBackgroundImage (id, width) {
       return `https://picsum.photos/id/${id}/${width}`
     },
+    getIconImg (id) {
+      return require(`./assets/icons/${id}.jpeg`)
+    },
     clickOnTumbnail (e, id) {
       console.log(`clickOnTumbnail - id: ${id}`)
       window.myEvent = e
       console.log(e)
       this.isShowDialog = true
+      this.dialogIcon =  `url(${this.getIconImg(id % 9 )})`
       this.dialogImage = `url(${this.getBackgroundImage(id, 1024)})`
+      this.dialogId = id
     },
     closeDialog(e) {
       console.log("closeDialog")
       this.isShowDialog = false
-    }
+      this.dialogIcon = ''
+      this.dialogId = 0
+    }    
   }
 }
 </script>
@@ -278,17 +287,18 @@ export default {
   background-color: #aaaaaa;
 }
 
+.icon-normal {
+  width: 45px;
+  height: 45px;
+}
 .icon {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
-
+ 
   border: 1px solid #fff;
   box-shadow: 0 0 0 1px #aaa;
 
-  background-image: url(https://thispersondoesnotexist.com/image);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
