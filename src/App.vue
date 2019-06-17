@@ -20,7 +20,7 @@
           <div id="message-list">
             <div class="message-item" v-for="j in range(1, 20)" :key="j">
               <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
-              <pre>text</pre>
+              <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
           </div>
           <div id="message-form">
@@ -43,6 +43,8 @@
 import Grid from './components/Grid.vue'
 import GridItem from './components/GridItem'
 import ThumbnailItem from './components/ThumbnailItem'
+import { randRange, genSentence } from './sentence-generator'
+
 export default {
   name: 'app',
   components: {
@@ -60,6 +62,8 @@ export default {
     range (start, count) {
       return Array(count).fill(start).map((x, y) => x + y)
     },
+    randRange (start, length) { return randRange(start, length) },
+    genSentence (count) { return genSentence(count) },
     getBackgroundImage (id, width) {
       return `https://picsum.photos/id/${id}/${width}`
     },
@@ -236,6 +240,15 @@ export default {
 #message-form > form * {
   color: #444;
   font-size: 9pt;
+}
+
+.message-item pre {
+  padding: 0.3em 0 0.3em 0em;
+  text-align: left;
+  white-space: normal;
+
+  font-family: sans-serif;
+  font-size: 8pt;
 }
 
 .message-item {
