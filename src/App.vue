@@ -56,7 +56,7 @@
                 <input type="text" id="text" name="message[text]"/>
               </div>
               <div>
-                <input type="submit" />
+                <input type="submit" value="send" />
               </div>
             </form>
           </div>
@@ -194,17 +194,17 @@ export default {
 
   position: absolute;
   width: calc(100% - 0.6em);
-  height: calc(100% - 0.6em - (50px + 5px + 5px + 1px) - 50px);
+  height: calc(100% - 0.6em - (50px + 5px + 5px + 1px) - 30px);
   top: calc(50px + 5px + 5px + 1px);
   left: 0;
   right: 0;
-  bottom: calc(50px + 0.3em);
+  bottom: calc(30px + 0.3em);
 
   background-color: white;
 }
 
 #message-form {
-  height: 50px;
+  height: 30px;
 
   position: absolute;
   bottom: 0;
@@ -224,10 +224,11 @@ export default {
 }
 
 #message-form > form > :first-child {
+  padding: 0 0.3em 0em 0.3em;
   width: 100%;
 }
 #message-form > form > :last-child {
-  width: 40%;
+  width: 20%;
 }
 
 #message-form > form > div > * { 
@@ -237,6 +238,12 @@ export default {
 
 #message-form > form input {
   border: 0;
+}
+
+
+#message-form > form * {
+  color: #444;
+  font-size: 9pt;
 }
 
 .message-item {
