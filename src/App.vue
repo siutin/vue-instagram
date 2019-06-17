@@ -18,37 +18,37 @@
             <div class="icon"></div>
           </div>
           <div id="messages">
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
-            <p>Hello World text</p>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
+            <div class="message-item">Hello World text</div>
           </div>
           <div id="message-form">
             <form action="">
@@ -231,6 +231,11 @@ export default {
 
 #message-form > form input {
   border: 0;
+}
+
+.message-item {
+  padding: 1em 0em 1em 0;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .icon {
