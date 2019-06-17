@@ -9,8 +9,8 @@
         </template>
       </Grid>
     </div>
-    <div id="cover" v-on:click="closeDialog" v-show="isShowDialog"></div>
     <div id="dialog-container" class="fade" v-show="isShowDialog">
+      <div id="cover" v-on:click="closeDialog" v-show="isShowDialog"></div>
       <div id="dialog">
         <div id="dialog-image" :style="{ backgroundImage: dialogImage }"></div>
         <div id="dialog-content">
@@ -113,6 +113,8 @@ export default {
 
   background-color: black;
   opacity: 0.5;
+
+  z-index: 998;
 }
 
 #dialog-container {
@@ -159,6 +161,9 @@ export default {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+
+  position: relative;
+  z-index: 999;
 }
 
 #dialog-content {
@@ -166,6 +171,7 @@ export default {
   text-align: left;
 
   position: relative;
+  z-index: 999;
 }
 
 #profile {
