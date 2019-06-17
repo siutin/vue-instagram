@@ -264,6 +264,12 @@ export default {
   width: 45px;
   height: 45px;
 }
+
+.icon-small {
+  width: 30px;
+  height: 30px;
+}
+
 .icon {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
