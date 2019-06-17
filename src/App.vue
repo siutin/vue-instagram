@@ -188,8 +188,8 @@ export default {
 
   position: absolute;
   width: calc(100% - 0.6em);
-  height: calc(100% - 0.6em - 50px - 0.3em - 50px);
-  top: calc(50px + 0.3em);
+  height: calc(100% - 0.6em - (50px + 5px + 5px) - 50px);
+  top: calc(50px + 5px + 5px);
   left: 0;
   right: 0;
   bottom: calc(50px + 0.3em);
