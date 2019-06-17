@@ -18,37 +18,10 @@
             <div class="icon icon-normal" :style="{ backgroundImage: dialogIcon}"></div>
           </div>
           <div id="message-list">
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
-            <div class="message-item">Hello World text</div>
+            <div class="message-item" v-for="j in range(1, 20)" :key="j">
+              <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
+              <pre>text</pre>
+              </div>
           </div>
           <div id="message-form">
             <form action="">
@@ -266,7 +239,7 @@ export default {
 }
 
 .message-item {
-  padding: 1em 0em 1em 0;  
+  padding: 0.3em 0 0.3em 0;
 }
 
 .message-item:not(:last-child) {
