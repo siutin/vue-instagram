@@ -106,20 +106,20 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  
+
   background-color: black;
-  opacity: 0.2;  
+  opacity: 0.5;
 }
 
 #dialog-container {
- position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  
+
   display: flex;
-  justify-content: center;
+  justify-content:center;
   flex-direction: column;
 }
 
@@ -177,7 +177,7 @@ export default {
 
   display: flex;
   flex-direction: row-reverse;
-  
+
   background-color: rebeccapurple;
 
   position: relative;
@@ -206,7 +206,7 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0; 
+  right: 0;
 
   background-color: chartreuse;
 }
@@ -260,7 +260,7 @@ export default {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-direction: normal;
-  animation-timing-function: ease-out; 
+  animation-timing-function: ease-out;
 }
 
 @keyframes fadein {
