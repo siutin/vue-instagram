@@ -180,6 +180,11 @@ export default {
   position: relative;
   top: 0;
   left: 0;
+  border-bottom: 1px solid #eeeeee;
+  -webkit-box-shadow: 0px 2px 5px -5px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0px 2px 5px -5px rgba(0,0,0,0.45);
+  box-shadow: 0px 2px 5px -5px rgba(0,0,0,0.45);
+  z-index: 999;
 }
 
 #message-list {
@@ -188,8 +193,8 @@ export default {
 
   position: absolute;
   width: calc(100% - 0.6em);
-  height: calc(100% - 0.6em - (50px + 5px + 5px) - 50px);
-  top: calc(50px + 5px + 5px);
+  height: calc(100% - 0.6em - (50px + 5px + 5px + 1px) - 50px);
+  top: calc(50px + 5px + 5px + 1px);
   left: 0;
   right: 0;
   bottom: calc(50px + 0.3em);
