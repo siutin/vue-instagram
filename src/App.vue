@@ -10,8 +10,8 @@
       </Grid>
     </div>
     <div id="cover" v-on:click="closeDialog" v-show="isShowDialog"></div>
-    <div id="dialog-container" class="fade" v-on:click="closeDialog" v-show="isShowDialog">
-      <div id="dialog" v-on:click="closeDialog">
+    <div id="dialog-container" class="fade" v-show="isShowDialog">
+      <div id="dialog">
         <div id="dialog-image" :style="{ backgroundImage: dialogImage }"></div>
         <div id="dialog-content">
           <div id="profile">
