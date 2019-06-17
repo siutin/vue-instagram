@@ -17,7 +17,7 @@
           <div id="profile">
             <div class="icon"></div>
           </div>
-          <div id="messages">
+          <div id="message-list">
             <div class="message-item">Hello World text</div>
             <div class="message-item">Hello World text</div>
             <div class="message-item">Hello World text</div>
@@ -182,7 +182,7 @@ export default {
   left: 0;
 }
 
-#messages {
+#message-list {
   padding: 0.3em;
   overflow-y: scroll;
 
@@ -236,6 +236,20 @@ export default {
 .message-item {
   padding: 1em 0em 1em 0;
   border-bottom: 1px solid #eeeeee;
+}
+
+#message-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+#message-list::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+#message-list::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
 }
 
 .icon {
