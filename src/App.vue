@@ -72,8 +72,6 @@ export default {
     },
     clickOnTumbnail (e, id) {
       console.log(`clickOnTumbnail - id: ${id}`)
-      window.myEvent = e
-      console.log(e)
       this.isShowDialog = true
       this.dialogIcon =  `url(${this.getIconImg(id % 9 )})`
       this.dialogImage = `url(${this.getBackgroundImage(id, 1024)})`
