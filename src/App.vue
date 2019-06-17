@@ -52,8 +52,12 @@
           </div>
           <div id="message-form">
             <form action="">
-              <input type="text" id="text" name="message[text]" />
-              <input type="submit" />
+              <div>
+                <input type="text" id="text" name="message[text]"/>
+              </div>
+              <div>
+                <input type="submit" />
+              </div>
             </form>
           </div>
         </div>
@@ -164,10 +168,6 @@ export default {
   position: relative;
 }
 
-#dialog-content > * {
-  padding-top: 5pt;
-}
-
 #profile {
   padding: 5px;
   height: 50px;
@@ -188,7 +188,7 @@ export default {
 
   position: absolute;
   width: calc(100% - 0.6em);
-  height: calc(100% - 0.6em - 50px - 0.3em - 50px - 0.3em);
+  height: calc(100% - 0.6em - 50px - 0.3em - 50px);
   top: calc(50px + 0.3em);
   left: 0;
   right: 0;
@@ -208,15 +208,29 @@ export default {
   background-color: chartreuse;
 }
 
-#message-form > form > div {
+#message-form > form {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+
+  height: 100%;
+  width: 100%;
 }
 
-#message-form > form, #message-form > form > input {
-  display: flex;
-  flex-wrap: wrap;
+#message-form > form > :first-child {
+  width: 100%;
+}
+#message-form > form > :last-child {
+  width: 40%;
+}
+
+#message-form > form > div > * { 
+  width: 100%;
+  height: 100%;
+}
+
+#message-form > form input {
+  border: 0;
 }
 
 .icon {
