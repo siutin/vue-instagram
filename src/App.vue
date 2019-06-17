@@ -83,6 +83,7 @@ export default {
       console.log("closeDialog")
       this.isShowDialog = false
       this.dialogIcon = ''
+      this.dialogImage = ''
       this.dialogId = 0
     }    
   }
