@@ -244,7 +244,7 @@ export default {
   text-align: left;
   white-space: normal;
 
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   font-size: 8pt;
 }
 
@@ -265,7 +265,7 @@ export default {
   text-align: right;
   white-space: normal;
 
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   font-size: 7pt;
   color: #444;
 }
@@ -515,6 +515,8 @@ export default {
 </style>
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -525,7 +527,7 @@ export default {
   }
   
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 10pt;
