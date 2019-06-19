@@ -21,12 +21,16 @@
           </div>
           <div class="dialog__content__messages">
             <div class="messages__item" v-for="j in range(1, 20)" :key="j">
-              <div class="profile">
-                <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
-                <div class="name">{{ genName() }}</div>
-                <div class="datetime">{{ displayDateTime() }}</div>
+              <div class="messages__item__first">
+                <div class="profile">
+                  <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
+                  <div class="name">{{ genName() }}</div>
+                </div>
+                <div class="messages__item__first__right">
+                  <div class="datetime">{{ displayDateTime() }}</div>
+                </div>
               </div>
-              <div>
+              <div class="messages__item__second">
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
             </div>
@@ -96,7 +100,7 @@ export default {
       this.dialogIcon = ''
       this.dialogImage = ''
       this.dialogId = 0
-    }    
+    }
   }
 }
 </script>
@@ -239,6 +243,28 @@ export default {
 
   font-family: sans-serif;
   font-size: 8pt;
+}
+
+.messages__item__first {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+.messages__item__first__right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.messages__item .datetime {
+  text-align: right;
+  white-space: normal;
+
+  font-family: sans-serif;
+  font-size: 7pt;
+  color: #444;
 }
 
 .messages__form {
