@@ -24,6 +24,7 @@
               <div class="profile">
                 <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
                 <div class="name">{{ genName() }}</div>
+                <div class="datetime">{{ displayDateTime() }}</div>
               </div>
               <div>
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
@@ -51,6 +52,7 @@ import Grid from './components/Grid.vue'
 import GridItem from './components/GridItem'
 import ThumbnailItem from './components/ThumbnailItem'
 import { randRange, genSentence, genName } from './generator'
+import { formatDistance, subSeconds } from 'date-fns'
 
 export default {
   name: 'app',
@@ -77,6 +79,9 @@ export default {
     },
     getIconImg (id) {
       return require(`./assets/icons/${id}.jpeg`)
+    },
+    displayDateTime () {
+      return formatDistance(subSeconds(new Date(), randRange(0, 86400*365)), new Date(), { addSuffix: true })
     },
     clickOnTumbnail (e, id) {
       console.log(`clickOnTumbnail - id: ${id}`)
