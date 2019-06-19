@@ -214,7 +214,11 @@ export default {
 }
 
 .messages__item {
-  padding: 0.3em 0 0.3em 0;
+  padding: 0 0.3em 0 0.3em;
+}
+
+.messages__item > * {
+  padding: 0 0.3em 0 0.3em;
 }
 
 .messages__item:not(:last-child) {
@@ -222,7 +226,7 @@ export default {
 }
 
 .messages__item pre {
-  padding: 0.3em 0 0.3em 0em;
+  padding: 0.3em 0.3em 0.3em 0.3em;
   text-align: left;
   white-space: normal;
 
@@ -279,7 +283,6 @@ export default {
 }
 
 .profile {
-  padding: 5px;
   display: flex;
   align-items: center;
 }
