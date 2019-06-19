@@ -4,6 +4,8 @@
     <img 
       class="img" 
       v-lazy="getBackgroundImage(id, width)"
+      @mouseover="isHover = true"
+      @mouseleave="isHover = false"
     />
   </lazy-component>
 </template>
@@ -16,7 +18,9 @@ export default {
         width: Number
     },
     data () {
-      return { }
+      return {
+        isHover: false
+      }
     },
     computed: { },
     methods: {
@@ -24,6 +28,12 @@ export default {
         return `https://picsum.photos/id/${id}/${width}`
       },
       handler (component) {
+      }
+    },
+    watch: {
+      isHover () {
+        console.log("isHover detected")
+        this.$emit('hover', { id: this.id, isHover: this.isHover, elm: this })
       }
     },
     mounted () {
