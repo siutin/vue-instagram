@@ -165,8 +165,6 @@ export default {
   height: 50px;
 
   display: flex;
-  flex-direction: row-reverse;
-
   position: relative;
   top: 0;
   left: 0;
