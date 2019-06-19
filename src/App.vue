@@ -12,25 +12,25 @@
     <div id="dialog-container" class="fade" v-show="isShowDialog">
       <div id="cover" v-on:click="closeDialog" v-show="isShowDialog"></div>
       <div id="dialog">
-        <div id="dialog-image" :style="{ backgroundImage: dialogImage }"></div>
-        <div id="dialog-content">
-          <div id="profile" class="profile">
+        <div class="dialog__image" :style="{ backgroundImage: dialogImage }"></div>
+        <div class="dialog__content">
+          <div class="profile dialog__content__profile">
             <div class="icon icon-normal" :style="{ backgroundImage: dialogIcon}"></div>
             <div class="name">{{ genName() }}</div>
             <div class="follow"><a href="">follow</a></div>
           </div>
-          <div id="message-list">
-            <div class="message-item" v-for="j in range(1, 20)" :key="j">
+          <div class="dialog__content__messages">
+            <div class="messages__item" v-for="j in range(1, 20)" :key="j">
               <div class="profile">
                 <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
                 <div class="name">{{ genName() }}</div>
               </div>
-              <div class="message">
+              <div>
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
             </div>
           </div>
-          <div id="message-form">
+          <div class="messages__form">
             <form action="">
               <div>
                 <input type="text" id="text" name="message[text]"/>
@@ -133,7 +133,7 @@ export default {
 }
 
 @media (orientation: landscape) {
-  #dialog-image {
+  .dialog__image {
     max-width: 1024px;
     max-height: 1024px;
     width: 60vh;
@@ -142,7 +142,7 @@ export default {
 }
 
 @media (orientation: portrait) {
-  #dialog-image {
+  .dialog__image {
     max-width: 1024px;
     max-height: 1024px;
     width: 60vw;
@@ -150,7 +150,7 @@ export default {
   }
 }
 
-#dialog-image {
+.dialog__image {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -159,7 +159,7 @@ export default {
   z-index: 999;
 }
 
-#dialog-content {
+.dialog__content {
   width: 335px;
   text-align: left;
 
@@ -167,7 +167,7 @@ export default {
   z-index: 999;
 }
 
-#profile {
+.dialog__content__profile {
   padding: 5px;
   height: 50px;
 
@@ -184,7 +184,7 @@ export default {
   z-index: 999;
 }
 
-#message-list {
+.dialog__content__messages {
   padding: 0.3em;
   overflow-y: scroll;
 
@@ -198,15 +198,30 @@ export default {
 
   background-color: white;
 }
-.message-item {
+
+.dialog__content__messages::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+.dialog__content__messages::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+.dialog__content__messages::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
+}
+
+.messages__item {
   padding: 0.3em 0 0.3em 0;
 }
 
-.message-item:not(:last-child) {
+.messages__item:not(:last-child) {
   border-bottom: 1px solid #eeeeee;
 }
 
-.message-item pre {
+.messages__item pre {
   padding: 0.3em 0 0.3em 0em;
   text-align: left;
   white-space: normal;
@@ -215,7 +230,7 @@ export default {
   font-size: 8pt;
 }
 
-#message-form {
+.messages__form {
   height: 30px;
 
   position: absolute;
@@ -230,7 +245,7 @@ export default {
   box-shadow: 0px -2px 10px -4px rgba(0,0,0,0.45);
 }
 
-#message-form > form {
+.messages__form > form {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -239,42 +254,28 @@ export default {
   width: 100%;
 }
 
-#message-form > form > :first-child {
+.messages__form > form > :first-child {
   padding: 0 0.3em 0em 0.3em;
   width: 100%;
 }
-#message-form > form > :last-child {
+.messages__form > form > :last-child {
   width: 20%;
   border-left: 1px solid #eeeeee;  
 }
 
-#message-form > form > div > * { 
+.messages__form > form > div > * { 
   width: 100%;
   height: 100%;
 }
 
-#message-form > form input {
-  border: 0;
-  background-color: white;
+.messages__form > form input {
+  border: 0;  
 }
 
-#message-form > form * {
+.messages__form > form * {
   color: #444;
   font-size: 9pt;
-}
-
-#message-list::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #F5F5F5;
-}
-
-#message-list::-webkit-scrollbar {
-  width: 5px;
-  background-color: #F5F5F5;
-}
-
-#message-list::-webkit-scrollbar-thumb {
-  background-color: #aaaaaa;
+  background-color: white;
 }
 
 .profile {
