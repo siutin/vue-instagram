@@ -29,7 +29,7 @@
                 <input type="text" id="text" name="message[text]"/>
               </div>
               <div>
-                <input type="submit" value="send" />
+                <input type="submit" value="reply" />
               </div>
             </form>
           </div>
@@ -224,6 +224,7 @@ export default {
 }
 #message-form > form > :last-child {
   width: 20%;
+  border-left: 1px solid #eeeeee;  
 }
 
 #message-form > form > div > * { 
@@ -233,8 +234,8 @@ export default {
 
 #message-form > form input {
   border: 0;
+  background-color: white;
 }
-
 
 #message-form > form * {
   color: #444;
