@@ -7,7 +7,30 @@
       <Grid>
          <template v-for="i in range(1, 90)">
           <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
-            <thumbnail-item v-if="isReady" :id="id" :width="width" v-on:click.native="clickOnTumbnail($event, id)"></thumbnail-item>
+            <thumbnail-item
+             v-if="isReady" 
+             :id="id"
+             :width="width" 
+             v-on:click.native="clickOnTumbnail($event, id)"
+            >
+            </thumbnail-item>
+            <div class="thumbnail-item--hover fade" :id="`tih-${id}`">
+              <div class="cover"></div>
+              <div class="action">
+                <div> 
+                  <div>
+                    <img :src="require('@/assets/favorite-heart-button.png')" alt="" />
+                  </div>
+                  <div>{{ randRange(0, 999) }}</div>
+                 </div>
+                <div> 
+                  <div>
+                    <img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" />
+                  </div>
+                  <div>{{ randRange(0, 999) }} </div>
+                  </div>
+              </div>
+            </div>
           </grid-item>
         </template>
       </Grid>
@@ -373,6 +396,64 @@ export default {
   content: "";
   float: left;
   padding-top: 100%;
+}
+
+.thumbnail-item--hover {
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   
+   display: none;
+}
+.thumbnail-item--hover--active {
+  display: block;
+}
+.thumbnail-item--hover .cover {
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+  
+  background-color: black;
+   opacity: 0.5;
+}
+
+.thumbnail-item--hover .action {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+
+   color: white;
+   font-size: 0.6em;
+
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: flex-end;
+   padding: 15pt;
+}
+
+.thumbnail-item--hover .action img {
+  height: 1em;
+  filter: invert(100%);
+  padding-right: 0.3em;
+  margin-top: 1px;
+}
+
+.thumbnail-item--hover .action > div {
+  display: flex;
+  flex-direction: row;
+  justify-items: baseline;
+  align-items: center;
 }
 
 .fade {
