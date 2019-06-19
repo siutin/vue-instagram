@@ -1,12 +1,15 @@
 <template>
   <lazy-component @show="handler">
     <div class="loading"></div>
-    <img 
-      class="img" 
-      v-lazy="getBackgroundImage(id, width)"
+    <div
       @mouseover="isHover = true"
-      @mouseleave="isHover = false"
-    />
+      @mouseleave="isHover = false">
+      <img 
+        class="img" 
+        v-lazy="getBackgroundImage(id, width)"
+      />
+      <slot></slot>
+    </div>
   </lazy-component>
 </template>
 <script>
