@@ -394,6 +394,124 @@ export default {
   }
 }
 
+@media (min-width: 641px) and (max-width: 960px) {
+
+  @media (orientation: landscape) {
+    .dialog__image {
+      max-width: 512px;
+      max-height: 512px;
+      width: 50vh;
+      height: 50vh;
+    }
+  }
+
+  @media (orientation: portrait) {
+    .dialog__image {
+      max-width: 512px;
+      max-height: 512px;
+      width: 50vw;
+      height: 50vw;
+    }
+  }
+
+  .dialog__content {
+    width: 235px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+
+  #dialog {
+    /*  */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    height: 80%;
+  }
+
+  @media (orientation: landscape) {
+    .dialog__image {
+      /*  */
+      width: 50vh;
+      height: 50vh;
+    }
+  }
+
+  @media (orientation: portrait) {
+    .dialog__image {
+      /*  */
+      width: 50vw;
+      height: 50vw;
+    }
+  }
+
+  .dialog__content {
+    /*  */
+    width: 100%;
+    flex: 1;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  #container {
+    /*  */
+    display: none;
+  }
+
+  #cover {
+      /* */
+    display: none;
+  }
+
+  #dialog {
+    /*  */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+  }
+
+  @media (orientation: landscape) {
+    .dialog__image {
+      /*  */
+      width: 100vh;
+      height: 100vh;
+    }
+  }
+
+  @media (orientation: portrait) {
+    .dialog__image {
+      /*  */
+      width: 100vw;
+      height: 100vw;
+    }
+  }
+
+  .dialog__content {
+    /*  */
+    width: 100%;
+    flex: 1;
+  }
+
+  .grid > div.item {
+    flex-basis: calc(100% - 20px);
+  }
+
+  .grid > div.item:nth-child(odd) {
+      background-color: #eeeeee;
+  }
+
+  .grid > div.item:nth-child(even) {
+      background-color: #eeeeee;
+  }
+}
+
 </style>
 
 <style>
@@ -433,7 +551,6 @@ export default {
   ##Screen = B/w 768px
 */
 @media (min-width: 768px) {
-
   .grid > div.item {
     flex-basis: calc(33.333% - 20px);
   }
@@ -470,6 +587,12 @@ export default {
   ##Screen = B/w 320px to 479px
 */
 @media (max-width: 480px) {
+
+  #container {
+    /*  */
+    display: none;
+  }
+
   .grid > div.item {
     flex-basis: calc(100% - 20px);
   }
