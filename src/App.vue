@@ -14,14 +14,21 @@
       <div id="dialog">
         <div id="dialog-image" :style="{ backgroundImage: dialogImage }"></div>
         <div id="dialog-content">
-          <div id="profile">
+          <div id="profile" class="profile">
             <div class="icon icon-normal" :style="{ backgroundImage: dialogIcon}"></div>
+            <div class="name">{{ genName() }}</div>
+            <div class="follow"><a href="">follow</a></div>
           </div>
           <div id="message-list">
             <div class="message-item" v-for="j in range(1, 20)" :key="j">
-              <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
-              <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
+              <div class="profile">
+                <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
+                <div class="name">{{ genName() }}</div>
               </div>
+              <div class="message">
+                <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
+              </div>
+            </div>
           </div>
           <div id="message-form">
             <form action="">
@@ -164,7 +171,6 @@ export default {
   padding: 5px;
   height: 50px;
 
-  display: flex;
   position: relative;
   top: 0;
   left: 0;
@@ -191,6 +197,22 @@ export default {
   bottom: calc(30px + 0.3em);
 
   background-color: white;
+}
+.message-item {
+  padding: 0.3em 0 0.3em 0;
+}
+
+.message-item:not(:last-child) {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.message-item pre {
+  padding: 0.3em 0 0.3em 0em;
+  text-align: left;
+  white-space: normal;
+
+  font-family: sans-serif;
+  font-size: 8pt;
 }
 
 #message-form {
@@ -241,23 +263,6 @@ export default {
   font-size: 9pt;
 }
 
-.message-item pre {
-  padding: 0.3em 0 0.3em 0em;
-  text-align: left;
-  white-space: normal;
-
-  font-family: sans-serif;
-  font-size: 8pt;
-}
-
-.message-item {
-  padding: 0.3em 0 0.3em 0;
-}
-
-.message-item:not(:last-child) {
-  border-bottom: 1px solid #eeeeee;
-}
-
 #message-list::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #F5F5F5;
@@ -270,6 +275,26 @@ export default {
 
 #message-list::-webkit-scrollbar-thumb {
   background-color: #aaaaaa;
+}
+
+.profile {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.profile > .name {
+  padding: 0 0.6em 0 0.6em;
+}
+
+.profile > .follow {
+  padding: 0 0.6em 0 0;
+}
+
+.profile > .follow > a {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: dodgerblue;
 }
 
 .icon-normal {
@@ -345,7 +370,7 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 11pt;
+    font-size: 10pt;
 
     /* retain dialog position */
     height: 100vh;
