@@ -43,7 +43,7 @@
 import Grid from './components/Grid.vue'
 import GridItem from './components/GridItem'
 import ThumbnailItem from './components/ThumbnailItem'
-import { randRange, genSentence } from './sentence-generator'
+import { randRange, genSentence, genName } from './generator'
 
 export default {
   name: 'app',
@@ -64,6 +64,7 @@ export default {
     },
     randRange (start, length) { return randRange(start, length) },
     genSentence (count) { return genSentence(count) },
+    genName(count) { return genName(count) },
     getBackgroundImage (id, width) {
       return `https://picsum.photos/id/${id}/${width}`
     },
