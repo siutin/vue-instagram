@@ -14,24 +14,24 @@
              v-on:click.native="clickOnTumbnail($event, id)"
              v-on:hover="hoverOnTumbnail"
             >
-            </thumbnail-item>
-            <div class="thumbnail-item--hover fade" :id="`tih-${id}`">
-              <div class="cover"></div>
-              <div class="action">
-                <div> 
-                  <div>
-                    <img :src="require('@/assets/favorite-heart-button.png')" alt="" />
+              <div class="thumbnail-item--hover fade" :id="`tih-${id}`">
+                <div class="cover"></div>
+                <div class="action">
+                  <div> 
+                    <div>
+                      <img :src="require('@/assets/favorite-heart-button.png')" alt="" />
+                    </div>
+                    <div>{{ randRange(0, 999) }}</div>
                   </div>
-                  <div>{{ randRange(0, 999) }}</div>
-                 </div>
-                <div> 
-                  <div>
-                    <img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" />
-                  </div>
-                  <div>{{ randRange(0, 999) }} </div>
-                  </div>
+                  <div> 
+                    <div>
+                      <img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" />
+                    </div>
+                    <div>{{ randRange(0, 999) }} </div>
+                    </div>
+                </div>
               </div>
-            </div>
+            </thumbnail-item>
           </grid-item>
         </template>
       </Grid>
