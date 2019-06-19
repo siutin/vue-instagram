@@ -12,6 +12,7 @@
              :id="id"
              :width="width" 
              v-on:click.native="clickOnTumbnail($event, id)"
+             v-on:hover="hoverOnTumbnail"
             >
             </thumbnail-item>
             <div class="thumbnail-item--hover fade" :id="`tih-${id}`">
@@ -126,6 +127,13 @@ export default {
       this.dialogIcon = ''
       this.dialogImage = ''
       this.dialogId = 0
+    },
+    hoverOnTumbnail ({ id, isHover }) {
+      console.log(`hoverOnTumbnail: ${id} ${isHover}`)
+      let elm = document.getElementById(`tih-${id}`)
+      if(elm) {
+        elm.style.display = isHover ? 'block' : "none"
+      }
     }
   }
 }
