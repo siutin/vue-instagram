@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <div id="container">
+      <header>
+        <h1>Explorer</h1>
+      </header>
       <Grid>
          <template v-for="i in range(1, 90)">
           <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
@@ -418,7 +421,12 @@ export default {
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1em;
   }
+
+   header {
+     padding: 0 10px 0 10px;
+   }
 
   /*
   ##Device = Tablets, Ipads (portrait)
