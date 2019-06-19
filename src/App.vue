@@ -214,11 +214,14 @@ export default {
 }
 
 .messages__item {
-  padding: 0 0.3em 0 0.3em;
+  padding: 0.15em;
 }
 
-.messages__item > * {
-  padding: 0 0.3em 0 0.3em;
+.messages__item > :first-child {
+  padding: 0.3em 0.3em 0.3em 0.3em;
+}
+.messages__item > :last-child {
+  padding: 0 0.3em 0.3em 0.3em;
 }
 
 .messages__item:not(:last-child) {
@@ -226,7 +229,6 @@ export default {
 }
 
 .messages__item pre {
-  padding: 0.3em 0.3em 0.3em 0.3em;
   text-align: left;
   white-space: normal;
 
