@@ -60,7 +60,11 @@
               <div class="messages__item__second">
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
-              <message-item-like-reply-item :id="`like-reply-${j}`"></message-item-like-reply-item>
+              <message-item-like-reply-item 
+              :id="`like-reply-${j}`"
+              :likes="randRange(0, 999)"
+              :replies="randRange(0, 10)"
+              ></message-item-like-reply-item>
             </div>
           </div>
           <div class="messages__form">

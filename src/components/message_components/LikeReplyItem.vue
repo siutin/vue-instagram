@@ -1,29 +1,27 @@
 <template>
   <div class="messages__item__third">
     <div class="messages__item__third__item like">
-      <div>{{ likeCount }}</div>
+      <div>{{ this.likes }}</div>
       <div @click="clickOnLike"><img :src="getLikeImg" /></div>
     </div>
     <div class="messages__item__third__item reply">
-      <div>{{ replyCount }}</div>
+      <div>{{ this.replies }}</div>
       <div><img :src="require('@/assets/comment-white-oval-bubble.png')" /></div>
     </div>
   </div>
 </template>
 
 <script>
-import { randRange } from './../../generator'
-
 export default {
   name: 'LikeReplyItem',
   props: {
-    id: Number
+    id: Number,
+    likes: Number,
+    replies: Number
   },
    data () {
     return {
-      isCurrentLiked: false,
-      likeCount: 0,
-      replyCount: 0
+      isCurrentLiked: false
     }
   },
   computed: {
@@ -32,15 +30,10 @@ export default {
     }
   },
   methods: {
-    randRange (start, length) { return randRange(start, length) },
     clickOnLike (e) {
       console.log(`clickOnLike - ${this.isCurrentLiked}`)
       this.isCurrentLiked = !this.isCurrentLiked
     }    
-  },
-  mounted () {
-    this.likeCount = randRange(0, 999) 
-    this.replyCount = randRange(0, 10) 
   }
 }
 </script>
