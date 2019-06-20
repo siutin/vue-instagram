@@ -217,16 +217,6 @@ export default {
 
 @media (max-width: 480px) {
 
-  #container {
-    /*  */
-    display: none;
-  }
-
-  #cover {
-      /* */
-    display: none;
-  }
-
   .grid > div.item {
     flex-basis: calc(100% - 20px);
   }
@@ -359,11 +349,6 @@ export default {
   ##Screen = B/w 320px to 479px
 */
 @media (max-width: 480px) {
-
-  #container {
-    /*  */
-    display: none;
-  }
 
   .grid > div.item {
     flex-basis: calc(100% - 20px);
