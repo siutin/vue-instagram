@@ -317,9 +317,9 @@ export default {
 @media (max-width: 480px) {
 
   #dialog {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
+    display: initial;
+    flex-wrap: initial;
+    flex-direction: initial;
 
     height: 100%;
     width: 100%;
@@ -339,11 +339,34 @@ export default {
     }
   }
 
-  .dialog__content {
-    width: 100%;
-    flex: 1;
+  .dialog__image {
+    position: initial;
   }
 
+  .dialog__content {
+    width: 100%;
+    position: initial;
+  }
+
+  .dialog__content__profile {
+    position: initial;
+    top: initial;
+    left: initial;
+  }
+
+  .dialog__content__messages {
+    width: calc(100% - 0.6em);
+    position: initial;
+    height: initial;
+    top: initial;
+    left: initial;
+    right: initial;
+    bottom: initial;
+  }
+
+  .messages__form {
+    position: fixed;
+  }
 }
 
 </style>
