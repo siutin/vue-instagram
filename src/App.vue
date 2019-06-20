@@ -48,15 +48,13 @@
           </div>
           <div class="dialog__content__messages">
             <div class="messages__item" v-for="j in range(1, 20)" :key="j">
-              <div class="messages__item__first">
-                <div class="profile">
-                  <div class="icon icon-small" :style="{ backgroundImage: `url(${getIconImg( (dialogId + j - 1) % 9 )})` }"></div>
-                  <div class="name">{{ genName() }}</div>
-                </div>
-                <div class="messages__item__first__right">
-                  <div class="datetime">{{ displayDateTime() }}</div>
-                </div>
-              </div>
+              <message-item-profile-post-at-section
+                :id="`profile-post-at-${j}`"
+                :name="genName()"
+                :icon="getIconImg( (dialogId + j - 1) % 9 )"
+                :post-at="displayDateTime()"
+              >
+              </message-item-profile-post-at-section>
               <div class="messages__item__second">
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
@@ -88,13 +86,14 @@ import Grid from './components/Grid.vue'
 import GridItem from './components/GridItem'
 import ThumbnailItem from './components/ThumbnailItem'
 import MessageItemLikeReplyItem from './components/message_components/LikeReplyItem'
+import MessageItemProfilePostAtSection from  './components/message_components/ProfilePostAtSection'
 import { randRange, genSentence, genName } from './generator'
 import { formatDistance, subSeconds } from 'date-fns'
 
 export default {
   name: 'app',
   components: {
-    Grid, GridItem, ThumbnailItem, MessageItemLikeReplyItem
+    Grid, GridItem, ThumbnailItem, MessageItemLikeReplyItem, MessageItemProfilePostAtSection
   },
   data () {
     return {
@@ -288,28 +287,6 @@ export default {
   font-size: 8pt;
 }
 
-.messages__item__first {
-  display: flex;
-  flex-direction: row;
-  justify-items: center;
-  justify-content: space-between;
-}
-
-.messages__item__first__right {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.messages__item .datetime {
-  text-align: right;
-  white-space: normal;
-
-  /* font-family: sans-serif; */
-  font-size: 7pt;
-  color: #444;
-}
-
 .messages__form {
   height: 30px;
 
@@ -356,48 +333,6 @@ export default {
   color: #444;
   font-size: 9pt;
   background-color: white;
-}
-
-.profile {
-  display: flex;
-  align-items: center;
-}
-
-.profile > .name {
-  padding: 0 0.6em 0 0.6em;
-}
-
-.profile > .follow {
-  padding: 0 0.6em 0 0;
-}
-
-.profile > .follow > a {
-  font-size: 0.8em;
-  text-decoration: none;
-  color: dodgerblue;
-}
-
-.icon-normal {
-  width: 45px;
-  height: 45px;
-}
-
-.icon-small {
-  width: 30px;
-  height: 30px;
-}
-
-.icon {
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
- 
-  border: 1px solid #fff;
-  box-shadow: 0 0 0 1px #aaa;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 .grid > div.item {
@@ -643,6 +578,48 @@ export default {
    header {
      padding: 0 10px 0 10px;
    }
+
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile > .name {
+    padding: 0 0.6em 0 0.6em;
+  }
+
+  .profile > .follow {
+    padding: 0 0.6em 0 0;
+  }
+
+  .profile > .follow > a {
+    font-size: 0.8em;
+    text-decoration: none;
+    color: dodgerblue;
+  }
+
+  .icon-normal {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon-small {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  
+    border: 1px solid #fff;
+    box-shadow: 0 0 0 1px #aaa;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
 
   /*
   ##Device = Tablets, Ipads (portrait)
