@@ -1,45 +1,48 @@
 <template>
-  <div id="app">
-    <div id="container" v-if="!isMobile || (isMobile && !isShowDialog)">
-      <header>
-        <h1>Explorer</h1>
-      </header>
-      <Grid>
-         <template v-for="i in range(1, 90)">
-          <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
-            <thumbnail-item
-             v-if="isReady" 
-             :id="id"
-             :width="width" 
-             @click.native="clickOnTumbnail($event, id)"
-             @hover="hoverOnTumbnail"
-            >
-              <div class="thumbnail-item--hover fade" :id="id" v-if="currentHoverId === id">
-                <div class="cover"></div>
-                <div class="like-reply-section">
-                  <div> 
-                    <div><img :src="require('@/assets/favorite-heart-button.png')" alt="" /></div>
-                    <div>{{ randRange(0, 999) }}</div>
-                  </div>
-                  <div> 
-                    <div><img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" /></div>
-                    <div>{{ randRange(0, 999) }} </div>
+  <vue100vh :css="{height: '100rvh'}">
+    <div id="app">
+      <div id="container" v-if="!isMobile || (isMobile && !isShowDialog)">
+        <header>
+          <h1>Explorer</h1>
+        </header>
+        <Grid>
+          <template v-for="i in range(1, 90)">
+            <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
+              <thumbnail-item
+              v-if="isReady" 
+              :id="id"
+              :width="width" 
+              @click.native="clickOnTumbnail($event, id)"
+              @hover="hoverOnTumbnail"
+              >
+                <div class="thumbnail-item--hover fade" :id="id" v-if="currentHoverId === id">
+                  <div class="cover"></div>
+                  <div class="like-reply-section">
+                    <div> 
+                      <div><img :src="require('@/assets/favorite-heart-button.png')" alt="" /></div>
+                      <div>{{ randRange(0, 999) }}</div>
                     </div>
+                    <div> 
+                      <div><img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" /></div>
+                      <div>{{ randRange(0, 999) }}</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </thumbnail-item>
-          </grid-item>
-        </template>
-      </Grid>
+              </thumbnail-item>
+            </grid-item>
+          </template>
+        </Grid>
+      </div>
+      <div id="dialog-container" class="fade" v-if="isShowDialog">
+        <div id="cover" @click="closeDialog" v-if="!isMobile"></div>
+        <post-dialog :id="dialogId"></post-dialog>
+      </div>
     </div>
-    <div id="dialog-container" class="fade" v-if="isShowDialog">
-      <div id="cover" @click="closeDialog"></div>
-      <post-dialog :id="dialogId"></post-dialog>
-    </div>
-  </div>
+  </vue100vh>  
 </template>
 
 <script>
+import vue100vh from 'vue-100vh'
 import Grid from './components/Grid.vue'
 import GridItem from './components/GridItem'
 import ThumbnailItem from './components/ThumbnailItem'
@@ -49,7 +52,7 @@ import { randRange } from './generator'
 export default {
   name: 'app',
   components: {
-    Grid, GridItem, ThumbnailItem, PostDialog
+    vue100vh, Grid, GridItem, ThumbnailItem, PostDialog
   },
   data () {
     return {
@@ -251,7 +254,7 @@ export default {
     font-size: 10pt;
 
     /* retain dialog position */
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
   }
 
