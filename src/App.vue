@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="container">
+    <div id="container" v-if="!isMobile || (isMobile && !isShowDialog)">
       <header>
         <h1>Explorer</h1>
       </header>
@@ -55,10 +55,15 @@ export default {
     return {
       currentHoverId: -1,
       isShowDialog: false,
-      dialogId: -1
+      dialogId: -1,
+      windowWidth: window.innerWidth
     }
   },
-  computed: { },
+  computed: { 
+    isMobile () {
+      return this.windowWidth <= 480
+    }
+  },
   methods: {
     range (start, count) {
       return Array(count).fill(start).map((x, y) => x + y)
@@ -84,6 +89,11 @@ export default {
       console.log(`hoverOnTumbnail: ${id} ${isHover}`)
       this.currentHoverId = isHover ? id : -1
     }
+  },
+  mounted () {
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth
+    })
   }
 }
 </script>
