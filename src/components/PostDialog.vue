@@ -242,6 +242,10 @@ export default {
 
 .messages__form > form input {
   border: 0;  
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .messages__form > form * {
