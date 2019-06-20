@@ -16,8 +16,8 @@ import { randRange } from './../../generator'
 
 export default {
   name: 'LikeReplyItem',
-  prop: {
-    id: Number,    
+  props: {
+    id: Number
   },
    data () {
     return {
