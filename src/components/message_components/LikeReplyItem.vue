@@ -1,7 +1,7 @@
 <template>
   <div class="messages__item__third">
     <div class="messages__item__third__item like">
-      <div>{{ this.likes }}</div>
+      <div>{{ getLikes }}</div>
       <div @click="clickOnLike"><img :src="getLikeImg" /></div>
     </div>
     <div class="messages__item__third__item reply">
@@ -27,13 +27,15 @@ export default {
   computed: {
     getLikeImg () {
       return this.isCurrentLiked ? require('@/assets/like_red.png') : require('@/assets/like_blank.png')
+    },
+    getLikes () {
+      return this.likes + (this.isCurrentLiked ? 1 : 0)
     }
   },
   methods: {
     clickOnLike (e) {
       console.log(`clickOnLike - ${this.isCurrentLiked}`)
       this.isCurrentLiked = !this.isCurrentLiked
-      this.likes = this.isCurrentLiked ? this.likes + 1: this.likes - 1
     }    
   }
 }
