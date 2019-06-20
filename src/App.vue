@@ -36,8 +36,8 @@
         </template>
       </Grid>
     </div>
-    <div id="dialog-container" class="fade" v-show="isShowDialog">
-      <div id="cover" v-on:click="closeDialog" v-show="isShowDialog"></div>
+    <div id="dialog-container" class="fade" v-if="isShowDialog">
+      <div id="cover" v-on:click="closeDialog"></div>
       <div id="dialog">
         <div class="dialog__image" :style="{ backgroundImage: dialogImage }"></div>
         <div class="dialog__content">
