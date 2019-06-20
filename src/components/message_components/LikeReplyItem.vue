@@ -15,7 +15,7 @@
 export default {
   name: 'LikeReplyItem',
   props: {
-    id: Number,
+    id: String,
     likes: Number,
     replies: Number
   },
