@@ -1,11 +1,11 @@
 <template>
   <div class="messages__item__third">
     <div class="messages__item__third__item like">
-      <div>{{ randRange(0, 999) }}</div>
+      <div>{{ likeCount }}</div>
       <div @click="clickOnLike"><img :src="getLikeImg" /></div>
     </div>
     <div class="messages__item__third__item reply">
-      <div>{{ randRange(0, 10) }}</div>
+      <div>{{ replyCount }}</div>
       <div><img :src="require('@/assets/comment-white-oval-bubble.png')" /></div>
     </div>
   </div>
@@ -21,7 +21,9 @@ export default {
   },
    data () {
     return {
-      isCurrentLiked: false
+      isCurrentLiked: false,
+      likeCount: 0,
+      replyCount: 0
     }
   },
   computed: {
@@ -34,8 +36,11 @@ export default {
     clickOnLike (e) {
       console.log(`clickOnLike - ${this.isCurrentLiked}`)
       this.isCurrentLiked = !this.isCurrentLiked
-    }
-    
+    }    
+  },
+  mounted () {
+    this.likeCount = randRange(0, 999) 
+    this.replyCount = randRange(0, 10) 
   }
 }
 </script>
