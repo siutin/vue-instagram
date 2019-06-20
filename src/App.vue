@@ -60,16 +60,7 @@
               <div class="messages__item__second">
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
-              <div class="messages__item__third">
-                <div class="messages__item__third__item like">
-                  <div>{{ randRange(0, 999) }}</div>
-                  <div @click="clickOnLike"><img :src="getLikeImg" /></div>
-                </div>
-                <div class="messages__item__third__item reply">
-                  <div>{{ randRange(0, 10) }}</div>
-                  <div><img :src="require('@/assets/comment-white-oval-bubble.png')" /></div>
-                </div>
-              </div>
+              <message-item-like-reply-item :id="`like-reply-${j}`"></message-item-like-reply-item>
             </div>
           </div>
           <div class="messages__form">
@@ -92,13 +83,14 @@
 import Grid from './components/Grid.vue'
 import GridItem from './components/GridItem'
 import ThumbnailItem from './components/ThumbnailItem'
+import MessageItemLikeReplyItem from './components/message_components/LikeReplyItem'
 import { randRange, genSentence, genName } from './generator'
 import { formatDistance, subSeconds } from 'date-fns'
 
 export default {
   name: 'app',
   components: {
-    Grid, GridItem, ThumbnailItem
+    Grid, GridItem, ThumbnailItem, MessageItemLikeReplyItem
   },
   data () {
     return {
@@ -106,15 +98,10 @@ export default {
       isShowDialog: false,
       dialogImage: '',
       dialogIcon: '',
-      dialogId: 0,
-      isCurrentLiked: false
+      dialogId: 0
     }
   },
-  computed: {
-    getLikeImg () {
-      return this.isCurrentLiked ? require('@/assets/like_red.png') : require('@/assets/like_blank.png')
-    }
-  },
+  computed: { },
   methods: {
     range (start, count) {
       return Array(count).fill(start).map((x, y) => x + y)
@@ -149,10 +136,6 @@ export default {
     hoverOnTumbnail ({ id, isHover }) {
       console.log(`hoverOnTumbnail: ${id} ${isHover}`)
       this.currentHoverId = isHover ? id : -1
-    },
-    clickOnLike (e) {
-      console.log(`clickOnLike - ${this.isCurrentLiked}`)
-      this.isCurrentLiked = !this.isCurrentLiked
     }
   }
 }
@@ -312,40 +295,6 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
-
-.messages__item__third {
-  display: flex;
-  flex-direction: row;
-  justify-items: center;
-  justify-content: space-around;
-
-  cursor: pointer;
-}
-
-.messages__item__third div {
-  font-size: 0.6em;
-}
-
-.messages__item__third .messages__item__third__item {
-  font-size: 1.2em;  
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.messages__item__third > .messages__item__third__item > div {
-  padding: 0 0.3em 0 0.3em;
-}
-
-.messages__item__third > .messages__item__third__item img {
-  height: 1.4em;
-}
-
-.messages__item__third__item.reply img {
-  -webkit-filter: contrast(20%);
-  filter: contrast(20%);
 }
 
 .messages__item .datetime {
