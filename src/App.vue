@@ -60,6 +60,16 @@
               <div class="messages__item__second">
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
+              <div class="messages__item__third">
+                <div class="messages__item__third__item like">
+                  <div>{{ randRange(0, 999) }}</div>
+                  <div @click="clickOnLike"><img :src="getLikeImg" /></div>
+                </div>
+                <div class="messages__item__third__item reply">
+                  <div>{{ randRange(0, 10) }}</div>
+                  <div><img :src="require('@/assets/comment-white-oval-bubble.png')" /></div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="messages__form">
@@ -96,7 +106,13 @@ export default {
       isShowDialog: false,
       dialogImage: '',
       dialogIcon: '',
-      dialogId: 0
+      dialogId: 0,
+      isCurrentLiked: false
+    }
+  },
+  computed: {
+    getLikeImg () {
+      return this.isCurrentLiked ? require('@/assets/like_red.png') : require('@/assets/like_blank.png')
     }
   },
   methods: {
@@ -128,10 +144,15 @@ export default {
       this.dialogIcon = ''
       this.dialogImage = ''
       this.dialogId = 0
+      this.isCurrentLiked = false
     },
     hoverOnTumbnail ({ id, isHover }) {
       console.log(`hoverOnTumbnail: ${id} ${isHover}`)
       this.currentHoverId = isHover ? id : -1
+    },
+    clickOnLike (e) {
+      console.log(`clickOnLike - ${this.isCurrentLiked}`)
+      this.isCurrentLiked = !this.isCurrentLiked
     }
   }
 }
@@ -261,6 +282,9 @@ export default {
 .messages__item > :first-child {
   padding: 0.3em 0.3em 0.3em 0.3em;
 }
+.messages__item > :nth-child(2) {
+  padding: 0.3em 0 0.3em 0;
+}
 .messages__item > :last-child {
   padding: 0 0.3em 0.3em 0.3em;
 }
@@ -288,6 +312,40 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.messages__item__third {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-around;
+
+  cursor: pointer;
+}
+
+.messages__item__third div {
+  font-size: 0.6em;
+}
+
+.messages__item__third .messages__item__third__item {
+  font-size: 1.2em;  
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.messages__item__third > .messages__item__third__item > div {
+  padding: 0 0.3em 0 0.3em;
+}
+
+.messages__item__third > .messages__item__third__item img {
+  height: 1.4em;
+}
+
+.messages__item__third__item.reply img {
+  -webkit-filter: contrast(20%);
+  filter: contrast(20%);
 }
 
 .messages__item .datetime {
