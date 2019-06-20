@@ -33,6 +33,7 @@ export default {
     clickOnLike (e) {
       console.log(`clickOnLike - ${this.isCurrentLiked}`)
       this.isCurrentLiked = !this.isCurrentLiked
+      this.likes = this.isCurrentLiked ? this.likes + 1: this.likes - 1
     }    
   }
 }
