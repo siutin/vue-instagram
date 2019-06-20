@@ -11,8 +11,8 @@
              v-if="isReady" 
              :id="id"
              :width="width" 
-             v-on:click.native="clickOnTumbnail($event, id)"
-             v-on:hover="hoverOnTumbnail"
+             @click.native="clickOnTumbnail($event, id)"
+             @hover="hoverOnTumbnail"
             >
               <div class="thumbnail-item--hover fade" :id="id" v-if="currentHoverId === id">
                 <div class="cover"></div>
@@ -37,7 +37,7 @@
       </Grid>
     </div>
     <div id="dialog-container" class="fade" v-if="isShowDialog">
-      <div id="cover" v-on:click="closeDialog"></div>
+      <div id="cover" @click="closeDialog"></div>
       <post-dialog :id="dialogId"></post-dialog>
     </div>
   </div>
