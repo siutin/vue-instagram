@@ -16,17 +16,13 @@
             >
               <div class="thumbnail-item--hover fade" :id="id" v-if="currentHoverId === id">
                 <div class="cover"></div>
-                <div class="action">
+                <div class="like-reply-section">
                   <div> 
-                    <div>
-                      <img :src="require('@/assets/favorite-heart-button.png')" alt="" />
-                    </div>
+                    <div><img :src="require('@/assets/favorite-heart-button.png')" alt="" /></div>
                     <div>{{ randRange(0, 999) }}</div>
                   </div>
                   <div> 
-                    <div>
-                      <img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" />
-                    </div>
+                    <div><img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" /></div>
                     <div>{{ randRange(0, 999) }} </div>
                     </div>
                 </div>
@@ -159,7 +155,7 @@ export default {
    opacity: 0.5;
 }
 
-.thumbnail-item--hover .action {
+.thumbnail-item--hover .like-reply-section {
    position: absolute;
    top: 0;
    left: 0;
@@ -176,14 +172,14 @@ export default {
    padding: 15pt;
 }
 
-.thumbnail-item--hover .action img {
+.thumbnail-item--hover .like-reply-section img {
   height: 1em;
   filter: invert(100%);
   padding-right: 0.3em;
   margin-top: 1px;
 }
 
-.thumbnail-item--hover .action > div {
+.thumbnail-item--hover .like-reply-section > div {
   display: flex;
   flex-direction: row;
   justify-items: baseline;
