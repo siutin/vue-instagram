@@ -24,12 +24,31 @@
           :likes="randRange(0, 999)"
           :replies="randRange(0, 10)"
           ></message-item-like-reply-item>
+            <div class="messages__item__forth">
+              <div class="messages__item" v-for="k in range(1, 2)" :key="k">
+                <message-item-profile-post-at-section
+                  :id="`profile-post-at-${k}`"
+                  :name="genName()"
+                  :icon="getIconImg( (id + k - 1) % 9 )"
+                  :post-at="displayDateTime()"
+                >
+                </message-item-profile-post-at-section>
+                <div class="messages__item__second">
+                  <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
+                </div>
+                <message-item-like-reply-item 
+                :id="`like-reply-${k}`"
+                :likes="randRange(0, 999)"
+                :replies="randRange(0, 10)"
+                ></message-item-like-reply-item>
+              </div>
+            </div>
         </div>
       </div>
       <div class="messages__form">
         <form action="">
           <div>
-            <input type="text" id="text" name="message[text]"/>
+            <input type="text" id="text" name="message[text]" v-model="inputText"/>
           </div>
           <div>
             <input type="submit" value="reply" />
@@ -188,8 +207,11 @@ export default {
 .messages__item > :nth-child(2) {
   padding: 0.3em 0 0.3em 0;
 }
-.messages__item > :last-child {
+.messages__item > :nth-child(3) {
   padding: 0 0.3em 0.3em 0.3em;
+}
+.messages__item > :nth-child(4) {
+  padding: 0 0 0 1.2em;
 }
 
 .messages__item:not(:last-child) {
