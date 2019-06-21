@@ -26,6 +26,7 @@
           ></message-item-like-reply-item>
             <div class="messages__item__forth">
               <div class="messages__item" v-for="k in range(1, 2)" :key="k">
+                <div v-if="k === 1" class="view__replies">View Replies</div>
                 <message-item-profile-post-at-section
                   :id="`profile-post-at-${k}`"
                   :name="genName()"
@@ -224,6 +225,11 @@ export default {
   font-size: 8pt;
 }
 
+.view__replies {
+  text-align: center;
+  font-size: 7pt;
+  color: #444;
+}
 .messages__form {
   height: 30px;
 
