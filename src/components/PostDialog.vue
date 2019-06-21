@@ -8,7 +8,7 @@
         <div class="follow"><a href="">follow</a></div>
       </div>
       <div class="dialog__content__messages">
-        <div class="messages__item" v-for="j in range(1, 20)" :key="j">
+        <div class="messages__item" v-for="j in randRange(2, 6)" :key="j">
           <message-item-profile-post-at-section
             :id="`profile-post-at-${j}`"
             :name="genName()"
@@ -25,7 +25,7 @@
           :replies="randRange(0, 10)"
           ></message-item-like-reply-item>
             <div class="messages__item__forth">
-              <div class="messages__item" v-for="k in range(1, 2)" :key="k">
+              <div class="messages__item" v-for="k in randRange(0, 3)" :key="k">
                 <div v-if="k === 1" class="view__replies">View Replies</div>
                 <message-item-profile-post-at-section
                   :id="`profile-post-at-${k}`"
