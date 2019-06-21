@@ -285,7 +285,6 @@ export default {
   .profile > .follow > a {
     font-size: 0.8em;
     text-decoration: none;
-    color: dodgerblue;
   }
 
   .icon-normal {
