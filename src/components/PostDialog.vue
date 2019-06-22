@@ -107,12 +107,11 @@ export default {
       let t = different / 1000
       let d = new Array(6).fill(0)
     
-      let result = new Array(6).fill(0)
-      for(let i = 0; i < unitValues.length; i++) {
-        let a = Math.round( t / unitValues[i] )
-        result[i] += a
-        t = t % unitValues[i]
-      }
+      let result = unitValues.reduce((obj, unitValue, i) => {        
+        obj.d[i] += Math.round( obj.t / unitValue )
+        obj.t = t % unitValue
+        return obj
+      }, { t, d })
 
       let s = new Array
       for(let i = 0; i < d.length; i++) {
@@ -126,11 +125,7 @@ export default {
     randDate (arr) {
       let units = [31536000, 604800, 86400, 3600, 60, 1] // (year week day hour minute second)
       
-      let value = 0
-      for(let i = 0; i < arr.length; i++){
-        value += arr[i] * units[i]
-      }
-      
+      let value = arr.reduce((acc, x, i) => acc +=  x * units[i], 0)
       return subSeconds(new Date(), value)
     },
   },
