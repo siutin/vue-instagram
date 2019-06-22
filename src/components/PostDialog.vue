@@ -22,7 +22,7 @@
           :id="`bottom-${j}`"
           :likes="randRange(0, 999)"
           :replies="randRange(0, 10)"
-          :post-at="displayDateTime([j, j + 1, j + 2, j + 3 , j + 4, j + 5])"
+          :post-at="displayDateTime(id + j)"
           ></message-item-bottom-item>
           <div class="messages__item__forth">
             <div class="view__replies"> View Replies </div>            
@@ -41,7 +41,7 @@
               <message-item-bottom-item 
               :id="`bottom-${k}`"
               :likes="randRange(0, 999)"
-              :post-at="displayDateTime([0, j, k, j + k])"
+              :post-at="displayDateTime(id + j * k)"
               ></message-item-bottom-item>
 
             </div>
@@ -96,9 +96,9 @@ export default {
     getIconImg (id) {
       return require(`./../assets/icons/${id}.jpeg`)
     },
-    displayDateTime (arr) {
+    displayDateTime (x) {
 
-      let different = new Date() - this.randDate(arr)
+      let different = new Date() - this.randDate(x)
 
       let unitValues = [31536000, 604800, 86400, 3600, 60, 1] // (year week day hour minute second)
       let units = ['y', 'w', 'd', 'h', 'm', 's']
@@ -129,11 +129,8 @@ export default {
 
       return s.join(' ')
     },
-    randDate (arr) {
-      let units = [31536000, 604800, 86400, 3600, 60, 1] // (year week day hour minute second)
-      
-      let value = arr.reduce((acc, x, i) => acc +=  x * units[i], 0)
-      return subSeconds(new Date(), value)
+    randDate (x) {
+      return subSeconds(new Date(), this.randRange(3600 * x * x, 3600 * x * x * 2))
     },
   },
   mounted () {
