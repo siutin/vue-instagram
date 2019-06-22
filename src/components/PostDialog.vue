@@ -283,7 +283,7 @@ export default {
   padding: 0.3em 0.3em 0.3em 0.3em;
 }
 .messages__item > :nth-child(2) {
-  padding: 0.3em 0 0.3em 0;
+  padding: 0.3em 0.3em 0.3em 0.3em;
 }
 .messages__item > :nth-child(3) {
   padding: 0.3em 0 0.3em 0;
