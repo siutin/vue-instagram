@@ -18,15 +18,15 @@
           <div class="messages__item__second">
             <pre>{{ _.get(message, 'text') }}</pre>
           </div>
-          <message-item-bottom-item 
+          <message-item-bottom-item
           :id="`bottom-${j}`"
           :likes="_.get(message,'likes')"
           :replies="_.get(message,'replies')"
           :post-at="_.get(message,'postAt')"
           ></message-item-bottom-item>
           <div class="messages__item__forth noselect">
-            <div class="view__replies" @click="clickOnViewReplies(j)" v-if="_.get(message, 'subMessages').length > 0"> View Replies </div>            
-          </div>          
+            <div class="view__replies" @click="clickOnViewReplies(j)" v-if="_.get(message, 'subMessages').length > 0"> View Replies </div>
+          </div>
           <div class="messages__item__fifth" v-show="canShowReplies(j)">
             <div class="messages__item" v-for="(subMessage, k) in _.get(message, 'subMessages')" :key="k">
               <message-item-profile-section
@@ -38,7 +38,7 @@
               <div class="messages__item__second">
                 <pre>{{ _.get(subMessage, 'text') }}</pre>
               </div>
-              <message-item-bottom-item 
+              <message-item-bottom-item
               :id="`bottom-${k}`"
               :likes="_.get(subMessage, 'likes')"
               :post-at="_.get(subMessage, 'postAt')"
@@ -105,11 +105,11 @@ export default {
 
       let unitValues = [31536000, 604800, 86400, 3600, 60, 1] // (year week day hour minute second)
       let units = ['y', 'w', 'd', 'h', 'm', 's']
-      
+
       let t = different / 1000
       let d = new Array(6).fill(0)
-    
-      let result = unitValues.reduce((obj, unitValue, i) => {        
+
+      let result = unitValues.reduce((obj, unitValue, i) => {
         obj.d[i] += Math.round( obj.t / unitValue )
         obj.t = t % unitValue
         return obj
@@ -175,7 +175,7 @@ export default {
      }
     })
     this.model = {
-      author: author,      
+      author: author,
       messages: messages
     }
   }
@@ -236,7 +236,7 @@ export default {
   position: relative;
   top: 0;
   left: 0;
-  
+
   background-color: white;
 
   border-bottom: 1px solid #eeeeee;
@@ -263,12 +263,12 @@ export default {
 
 .dialog__content__messages::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 .dialog__content__messages::-webkit-scrollbar {
   width: 5px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 .dialog__content__messages::-webkit-scrollbar-thumb {
@@ -309,10 +309,10 @@ export default {
 
   overflow: hidden;
   text-align: left;
-  
+
   font-size: 7pt;
   color: #444;
-  
+
   cursor: pointer;
 }
 
@@ -357,16 +357,16 @@ export default {
 }
 .messages__form > form > :last-child {
   width: 20%;
-  border-left: 1px solid #eeeeee;  
+  border-left: 1px solid #eeeeee;
 }
 
-.messages__form > form > div > * { 
+.messages__form > form > div > * {
   width: 100%;
   height: 100%;
 }
 
 .messages__form > form input {
-  border: 0;  
+  border: 0;
   border-radius: 0;
   -webkit-appearance: none;
   -moz-appearance: none;

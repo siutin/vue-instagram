@@ -4,7 +4,7 @@ import VueLazyload from 'vue-lazyload'
 import VueLodash from 'vue-lodash'
 
 Vue.use(VueLazyload, {
-  preLoad: 1.3, 
+  preLoad: 1.3,
   lazyComponent: true,
   observer: true,
   observerOptions: {

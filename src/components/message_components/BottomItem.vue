@@ -43,7 +43,7 @@ export default {
     clickOnLike (e) {
       console.log(`clickOnLike - ${this.isCurrentLiked}`)
       this.isCurrentLiked = !this.isCurrentLiked
-    }    
+    }
   }
 }
 </script>
@@ -64,7 +64,7 @@ export default {
 }
 
 .messages__item__third .messages__item__third__item {
-  font-size: 1.2em;  
+  font-size: 1.2em;
 
   display: flex;
   flex-direction: row;

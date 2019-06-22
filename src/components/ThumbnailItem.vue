@@ -4,8 +4,8 @@
     <div
       @mouseover="isHover = true"
       @mouseleave="isHover = false">
-      <img 
-        class="img" 
+      <img
+        class="img"
         v-lazy="getBackgroundImage(id, width)"
       />
       <slot></slot>
@@ -58,8 +58,8 @@ export default {
    background-repeat: no-repeat;
    background-position: center;
    background-size: 25%;
-   background-image: url(../assets/loading.gif);   
-   
+   background-image: url(../assets/loading.gif);
+
    height: 100%;
    width: 100%;
    position: absolute;
@@ -76,7 +76,7 @@ export default {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-direction: normal;
-  animation-timing-function: ease-out; 
+  animation-timing-function: ease-out;
 }
 
 @keyframes fadein {

@@ -9,20 +9,20 @@
           <template v-for="i in range(1, 90)">
             <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
               <thumbnail-item
-              v-if="isReady" 
+              v-if="isReady"
               :id="id"
-              :width="width" 
+              :width="width"
               @click.native="clickOnTumbnail($event, id)"
               @hover="hoverOnTumbnail"
               >
                 <div class="thumbnail-item--hover fade" :id="id" v-if="currentHoverId === id">
                   <div class="cover"></div>
                   <div class="like-reply-section">
-                    <div> 
+                    <div>
                       <div><img :src="require('@/assets/favorite-heart-button.png')" alt="" /></div>
                       <div>{{ randRange(0, 999) }}</div>
                     </div>
-                    <div> 
+                    <div>
                       <div><img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" /></div>
                       <div>{{ randRange(0, 999) }}</div>
                     </div>
@@ -38,7 +38,7 @@
         <post-dialog :id="dialogId"></post-dialog>
       </div>
     </div>
-  </vue100vh>  
+  </vue100vh>
 </template>
 
 <script>
@@ -62,7 +62,7 @@ export default {
       windowWidth: window.innerWidth
     }
   },
-  computed: { 
+  computed: {
     isMobile () {
       return this.windowWidth <= 480
     }
@@ -163,7 +163,7 @@ export default {
    left: 0;
    right: 0;
    bottom: 0;
-  
+
   background-color: black;
    opacity: 0.5;
 }
@@ -246,7 +246,7 @@ export default {
   input:focus, textarea:focus {
       outline: 0;
   }
-  
+
   #app {
     font-family: 'Lato', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -311,7 +311,7 @@ export default {
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-  
+
     border: 1px solid #fff;
     box-shadow: 0 0 0 1px #aaa;
 
