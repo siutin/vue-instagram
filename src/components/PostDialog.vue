@@ -18,12 +18,12 @@
           <div class="messages__item__second">
             <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
           </div>
-          <message-item-like-reply-item 
-          :id="`like-reply-${j}`"
+          <message-item-bottom-item 
+          :id="`bottom-${j}`"
           :likes="randRange(0, 999)"
           :replies="randRange(0, 10)"
           :post-at="displayDateTime()"
-          ></message-item-like-reply-item>
+          ></message-item-bottom-item>
           <div class="messages__item__forth">
             <div class="view__replies"> View Replies </div>            
           </div>          
@@ -39,11 +39,11 @@
               <div class="messages__item__second">
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
-              <message-item-like-reply-item 
-              :id="`like-reply-${k}`"
+              <message-item-bottom-item 
+              :id="`bottom-${k}`"
               :likes="randRange(0, 999)"
               :post-at="displayDateTime()"
-              ></message-item-like-reply-item>
+              ></message-item-bottom-item>
 
             </div>
           </div>
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import MessageItemLikeReplyItem from './message_components/LikeReplyItem'
+import MessageItemBottomItem from './message_components/BottomItem'
 import MessageItemProfileSection from  './message_components/ProfileSection'
 import { randRange, genSentence, genName } from './../generator'
 import { formatDistance, subSeconds } from 'date-fns'
@@ -75,7 +75,7 @@ export default {
     id: Number
   },
   components: {
-    MessageItemLikeReplyItem, MessageItemProfileSection
+    MessageItemBottomItem, MessageItemProfileSection
   },
   data () {
     return {

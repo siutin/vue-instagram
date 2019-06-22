@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'LikeReplyItem',
+  name: 'BottomItem',
   props: {
     id: String,
     likes: Number,
