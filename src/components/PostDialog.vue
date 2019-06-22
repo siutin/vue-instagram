@@ -24,26 +24,29 @@
           :likes="randRange(0, 999)"
           :replies="randRange(0, 10)"
           ></message-item-like-reply-item>
-            <div class="messages__item__forth">
-              <div class="messages__item" v-for="k in randRange(0, 3)" :key="k">
-                <div v-if="k === 1" class="view__replies">View Replies</div>
-                <message-item-profile-post-at-section
-                  :id="`profile-post-at-${k}`"
-                  :name="genName()"
-                  :icon="getIconImg( (id + k - 1) % 9 )"
-                  :post-at="displayDateTime()"
-                >
-                </message-item-profile-post-at-section>
-                <div class="messages__item__second">
-                  <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
-                </div>
-                <message-item-like-reply-item 
-                :id="`like-reply-${k}`"
-                :likes="randRange(0, 999)"
-                :replies="randRange(0, 10)"
-                ></message-item-like-reply-item>
+          <div class="messages__item__forth">
+            <div class="view__replies"> View Replies </div>            
+          </div>          
+          <div class="messages__item__fifth">
+            <div class="messages__item" v-for="k in randRange(0, 3)" :key="k">
+              <message-item-profile-post-at-section
+                :id="`profile-post-at-${k}`"
+                :name="genName()"
+                :icon="getIconImg( (id + k - 1) % 9 )"
+                :post-at="displayDateTime()"
+              >
+              </message-item-profile-post-at-section>
+              <div class="messages__item__second">
+                <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
+              <message-item-like-reply-item 
+              :id="`like-reply-${k}`"
+              :likes="randRange(0, 999)"
+              :replies="randRange(0, 10)"
+              ></message-item-like-reply-item>
+
             </div>
+          </div>
         </div>
       </div>
       <div class="messages__form">
@@ -209,14 +212,15 @@ export default {
   padding: 0.3em 0 0.3em 0;
 }
 .messages__item > :nth-child(3) {
-  padding: 0 0.3em 0.3em 0.3em;
-}
-.messages__item > :nth-child(4) {
-  padding: 0 0 0 1.2em;
+  padding: 0.3em 0 0.3em 0;
 }
 
-.messages__item:not(:last-child) {
-  border-bottom: 1px solid #eeeeee;
+.messages__item > :nth-child(4) {
+  padding: 0 0 0 2.6em;
+}
+
+.messages__item > :nth-child(5) {
+  padding: 0 0 0 2.6em;
 }
 
 .messages__item pre {
@@ -226,10 +230,27 @@ export default {
 }
 
 .view__replies {
-  text-align: center;
+
+  padding: 0.6em;
+
+  overflow: hidden;
+  text-align: left;
+  
   font-size: 7pt;
   color: #444;
 }
+
+.view__replies:before {
+  background-color: #aaaaaa;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  right: 12.5%;
+  vertical-align: middle;
+  width: 30%;
+}
+
 .messages__form {
   height: 30px;
 
