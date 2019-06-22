@@ -25,7 +25,7 @@
           :post-at="_.get(message,'postAt')"
           ></message-item-bottom-item>
           <div class="messages__item__forth">
-            <div class="view__replies" @click="clickOnViewReplies(j)"> View Replies </div>            
+            <div class="view__replies" @click="clickOnViewReplies(j)" v-if="_.get(message, 'subMessages').length > 0"> View Replies </div>            
           </div>          
           <div class="messages__item__fifth" v-show="canShowReplies(j)">
             <div class="messages__item" v-for="(subMessage, k) in _.get(message, 'subMessages')" :key="k">
