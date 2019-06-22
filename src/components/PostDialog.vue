@@ -407,7 +407,6 @@ export default {
 @media (min-width: 481px) and (max-width: 640px) {
 
   #dialog {
-    /*  */
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -425,14 +424,12 @@ export default {
 
   @media (orientation: portrait) {
     .dialog__image {
-      /*  */
       width: 50vw;
       height: 50vw;
     }
   }
 
   .dialog__content {
-    /*  */
     width: 100%;
     flex: 1;
   }
