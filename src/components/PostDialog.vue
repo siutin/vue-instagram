@@ -19,16 +19,17 @@
             <pre>{{ _.get(message, 'text') }}</pre>
           </div>
           <message-item-bottom-item
-          :id="`bottom-${j}`"
+          :id="`${j}`"
           :likes="_.get(message,'likes')"
           :replies="_.get(message,'replies')"
           :post-at="_.get(message,'postAt')"
+          @click-on-reply-button="() => clickOnReplyButton(j)"
           ></message-item-bottom-item>
           <div class="messages__item__forth noselect">
             <div class="view__replies" @click="clickOnViewReplies(j)" v-if="_.get(message, 'subMessages').length > 0"> View Replies </div>
           </div>
           <div class="messages__item__fifth" v-show="canShowReplies(j)">
-            <div class="messages__item" v-for="(subMessage, k) in _.get(message, 'subMessages')" :key="k">
+            <div class="messages__item" v-for="(subMessage, k) in _.get(message, 'subMessages')" :key="`${j}-${k}`">
               <message-item-profile-section
                 :id="`profile-post-at-${k}`"
                 :name="_.get(subMessage, 'name')"
@@ -39,9 +40,10 @@
                 <pre>{{ _.get(subMessage, 'text') }}</pre>
               </div>
               <message-item-bottom-item
-              :id="`bottom-${k}`"
+              :id="`${j}-${k}`"
               :likes="_.get(subMessage, 'likes')"
               :post-at="_.get(subMessage, 'postAt')"
+              @click-on-reply-button="() => clickOnReplyButton(j,k)"
               ></message-item-bottom-item>
 
             </div>
@@ -145,6 +147,9 @@ export default {
       } else {
         this.viewReplies.push(repliesId)
       }
+    },
+    clickOnReplyButton (messageId, subMessageId) {
+      console.log(`clickOnReplyButton - ${messageId} - ${subMessageId}`)
     }
   },
   mounted () {
@@ -159,6 +164,7 @@ export default {
     let messages = [...Array(randRange(2, 6)).keys()].map( j => {
      let subMessagesCount = randRange(0, 6)
      return {
+        id: j,
         name: j == 0 ? author.name : genName(),
         icon: j == 0 ? author.icon : this.getIconImg( (this.id + j - 1) % 9 ),
         text: genSentence(randRange(1, 3)).join('\r\n'),
@@ -166,6 +172,7 @@ export default {
         replies: subMessagesCount,
         postAt: this.displayDateTime(this.id + j),
         subMessages: [...Array(subMessagesCount).keys()].map(k => ({
+          id: k,
           name: genName(),
           icon: this.getIconImg( (this.id + k - 1) % 9 ),
           text: genSentence(randRange(1, 3)).join('\r\n'),
