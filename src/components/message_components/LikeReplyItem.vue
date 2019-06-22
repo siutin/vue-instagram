@@ -7,7 +7,7 @@
       <div>{{ getLikes }}</div>
       <div @click="clickOnLike"><img :src="getLikeImg" /></div>
     </div>
-    <div class="messages__item__third__item reply">
+    <div class="messages__item__third__item reply" v-if="isShowReplies">
       <div>{{ this.replies }}</div>
       <div><img :src="require('@/assets/comment-white-oval-bubble.png')" /></div>
     </div>
@@ -29,6 +29,9 @@ export default {
     }
   },
   computed: {
+    isShowReplies() {
+      return this.replies !== undefined && this.replies !== null
+    },
     getLikeImg () {
       return this.isCurrentLiked ? require('@/assets/like_red.png') : require('@/assets/like_blank.png')
     },

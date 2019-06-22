@@ -42,7 +42,6 @@
               <message-item-like-reply-item 
               :id="`like-reply-${k}`"
               :likes="randRange(0, 999)"
-              :replies="randRange(0, 10)"
               :post-at="displayDateTime()"
               ></message-item-like-reply-item>
 
