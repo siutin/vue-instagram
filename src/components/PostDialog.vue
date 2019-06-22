@@ -25,9 +25,9 @@
           :post-at="displayDateTime(id + j)"
           ></message-item-bottom-item>
           <div class="messages__item__forth">
-            <div class="view__replies"> View Replies </div>            
+            <div class="view__replies" @click="clickOnViewReplies(j)"> View Replies </div>            
           </div>          
-          <div class="messages__item__fifth">
+          <div class="messages__item__fifth" v-show="canShowReplies(j)">
             <div class="messages__item" v-for="k in randRange(0, 3)" :key="k">
               <message-item-profile-section
                 :id="`profile-post-at-${k}`"
@@ -79,7 +79,9 @@ export default {
   data () {
     return {
       dialogImage: '',
-      dialogIcon: ''
+      dialogIcon: '',
+      inputText: '',
+      viewReplies: []
     }
   },
   computed: { },
@@ -132,6 +134,17 @@ export default {
     randDate (x) {
       return subSeconds(new Date(), this.randRange(3600 * x * x, 3600 * x * x * 2))
     },
+    canShowReplies (repliesId) {
+      return this.viewReplies.includes(repliesId)
+    },
+    clickOnViewReplies (repliesId) {
+      console.log(`clickOnViewReplies - ${repliesId}`)
+      if(this.canShowReplies(repliesId)){
+        this.viewReplies = this.viewReplies.filter(id => id !== repliesId)
+      } else {
+        this.viewReplies.push(repliesId)
+      }
+    }
   },
   mounted () {
     this.dialogIcon =  `url(${this.getIconImg(this.id % 9 )})`
