@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueLazyload from 'vue-lazyload'
+import VueLodash from 'vue-lodash'
 
 Vue.use(VueLazyload, {
   preLoad: 1.3, 
@@ -11,6 +12,8 @@ Vue.use(VueLazyload, {
     threshold: 0.1
   }
 })
+
+Vue.use(VueLodash)
 
 Vue.config.productionTip = false
 

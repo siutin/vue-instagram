@@ -17,7 +17,8 @@
     "date-fns": "^2.0.0-alpha.34",
     "vue": "^2.6.10",
     "vue-100vh": "^0.1.1",
-    "vue-lazyload": "^1.2.6"
+    "vue-lazyload": "^1.2.6",
+    "vue-lodash": "^2.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
