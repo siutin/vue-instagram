@@ -7,7 +7,7 @@
       <div>{{ getLikes }}</div>
       <div @click="clickOnLike"><img :src="getLikeImg" /></div>
     </div>
-    <div class="messages__item__third__item reply">
+    <div class="messages__item__third__item reply" @click="$emit('click-on-reply-button', id)">
       <div v-if="isShowReplyCount" >{{ this.replies }}</div>
       <div><img :src="require('@/assets/comment-white-oval-bubble.png')" /></div>
     </div>
@@ -21,7 +21,8 @@ export default {
     id: String,
     likes: Number,
     replies: Number,
-    postAt: String
+    postAt: String,
+    clickOnReplyButton: Function
   },
    data () {
     return {
