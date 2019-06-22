@@ -12,8 +12,7 @@
           <message-item-profile-post-at-section
             :id="`profile-post-at-${j}`"
             :name="genName()"
-            :icon="getIconImg( (id + j - 1) % 9 )"
-            :post-at="displayDateTime()"
+            :icon="getIconImg( (id + j - 1) % 9 )"            
           >
           </message-item-profile-post-at-section>
           <div class="messages__item__second">

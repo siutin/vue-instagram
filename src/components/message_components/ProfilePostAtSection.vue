@@ -4,9 +4,6 @@
       <div class="icon icon-small" :style="{ backgroundImage: `url(${icon})` }"></div>
       <div class="name">{{ name }}</div>
     </div>
-    <div class="messages__item__first__right">
-      <div class="datetime">{{ postAt }}</div>
-    </div>
   </div>
 </template>
 
@@ -16,8 +13,7 @@ export default {
   props: {
     id: String,
     name: String,
-    icon: String,
-    postAt: String
+    icon: String
   },
    data () {
     return {}
