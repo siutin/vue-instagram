@@ -22,6 +22,7 @@
           :id="`like-reply-${j}`"
           :likes="randRange(0, 999)"
           :replies="randRange(0, 10)"
+          :post-at="displayDateTime()"
           ></message-item-like-reply-item>
           <div class="messages__item__forth">
             <div class="view__replies"> View Replies </div>            
@@ -42,6 +43,7 @@
               :id="`like-reply-${k}`"
               :likes="randRange(0, 999)"
               :replies="randRange(0, 10)"
+              :post-at="displayDateTime()"
               ></message-item-like-reply-item>
 
             </div>

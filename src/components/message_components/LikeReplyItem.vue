@@ -1,5 +1,8 @@
 <template>
   <div class="messages__item__third">
+    <div class="messages__item__third__item post-at">
+      <div>{{ postAt }}</div>
+    </div>
     <div class="messages__item__third__item like">
       <div>{{ getLikes }}</div>
       <div @click="clickOnLike"><img :src="getLikeImg" /></div>
@@ -17,7 +20,8 @@ export default {
   props: {
     id: String,
     likes: Number,
-    replies: Number
+    replies: Number,
+    postAt: String
   },
    data () {
     return {
@@ -75,6 +79,14 @@ export default {
 .messages__item__third__item.reply img {
   -webkit-filter: contrast(20%);
   filter: contrast(20%);
+}
+
+.post-at {
+  text-align: right;
+  white-space: normal;
+
+  font-size: 7pt;
+  color: #444;
 }
 
 </style>
