@@ -3,45 +3,45 @@
     <div class="dialog__image" :style="{ backgroundImage: dialogImage }"></div>
     <div class="dialog__content">
       <div class="profile dialog__content__profile">
-        <div class="icon icon-normal" :style="{ backgroundImage: dialogIcon}"></div>
-        <div class="name">{{ genName() }}</div>
+        <div class="icon icon-normal" :style="{ backgroundImage: `url(${_.get(model, 'author.icon')})` }"></div>
+        <div class="name">{{ _.get(model, "author.name") }}</div>
         <div class="follow"><a href="">follow</a></div>
       </div>
       <div class="dialog__content__messages">
-        <div class="messages__item" v-for="j in randRange(2, 6)" :key="j">
+        <div class="messages__item" v-for="(message, j) in _.get(model, 'messages')" :key="j">
           <message-item-profile-section
-            :id="`profile-post-at-${j}`"
-            :name="genName()"
-            :icon="getIconImg( (id + j - 1) % 9 )"            
+            :id="`this-post-at-${j}`"
+            :name="_.get(message, 'name')"
+            :icon="_.get(message, 'icon')"
           >
           </message-item-profile-section>
           <div class="messages__item__second">
-            <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
+            <pre>{{ _.get(message, 'text') }}</pre>
           </div>
           <message-item-bottom-item 
           :id="`bottom-${j}`"
-          :likes="randRange(0, 999)"
-          :replies="randRange(0, 10)"
-          :post-at="displayDateTime(id + j)"
+          :likes="_.get(message,'likes')"
+          :replies="_.get(message,'replies')"
+          :post-at="_.get(message,'postAt')"
           ></message-item-bottom-item>
           <div class="messages__item__forth">
             <div class="view__replies" @click="clickOnViewReplies(j)"> View Replies </div>            
           </div>          
           <div class="messages__item__fifth" v-show="canShowReplies(j)">
-            <div class="messages__item" v-for="k in randRange(0, 3)" :key="k">
+            <div class="messages__item" v-for="(subMessage, k) in _.get(message, 'subMessages')" :key="k">
               <message-item-profile-section
                 :id="`profile-post-at-${k}`"
-                :name="genName()"
-                :icon="getIconImg( (id + k - 1) % 9 )"
+                :name="_.get(subMessage, 'name')"
+                :icon="_.get(subMessage, 'icon')"
               >
               </message-item-profile-section>
               <div class="messages__item__second">
-                <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
+                <pre>{{ _.get(subMessage, 'text') }}</pre>
               </div>
               <message-item-bottom-item 
               :id="`bottom-${k}`"
-              :likes="randRange(0, 999)"
-              :post-at="displayDateTime(id + j * k)"
+              :likes="_.get(subMessage, 'likes')"
+              :post-at="_.get(subMessage, 'postAt')"
               ></message-item-bottom-item>
 
             </div>
@@ -81,7 +81,8 @@ export default {
       dialogImage: '',
       dialogIcon: '',
       inputText: '',
-      viewReplies: []
+      viewReplies: [],
+      model: {}
     }
   },
   computed: { },
@@ -149,6 +150,31 @@ export default {
   mounted () {
     this.dialogIcon =  `url(${this.getIconImg(this.id % 9 )})`
     this.dialogImage = `url(${this.getBackgroundImage(this.id, 1024)})`
+
+    let author = {
+        name: genName(),
+        icon: this.getIconImg(this.id % 9 )
+    }
+
+    let messages = [...Array(randRange(2, 6)).keys()].map( j => ({
+      name: j == 0 ? author.name : genName(),
+      icon: j == 0 ? author.icon : this.getIconImg( (this.id + j - 1) % 9 ),
+      text: genSentence(randRange(1, 3)).join('\r\n'),
+      likes: randRange(0, 999),
+      replies: randRange(0, 10),
+      postAt: this.displayDateTime(this.id + j),
+      subMessages: [...Array(randRange(0, 3)).keys()].map(k => ({
+        name: genName(),
+        icon: this.getIconImg( (this.id + k - 1) % 9 ),
+        text: genSentence(randRange(1, 3)).join('\r\n'),
+        likes: randRange(0, 999),
+        postAt: this.displayDateTime(this.id + j * k),
+      }))
+    }))
+    this.model = {
+      author: author,      
+      messages: messages
+    }
   }
 }
 </script>
