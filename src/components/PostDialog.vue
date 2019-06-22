@@ -156,21 +156,24 @@ export default {
         icon: this.getIconImg(this.id % 9 )
     }
 
-    let messages = [...Array(randRange(2, 6)).keys()].map( j => ({
-      name: j == 0 ? author.name : genName(),
-      icon: j == 0 ? author.icon : this.getIconImg( (this.id + j - 1) % 9 ),
-      text: genSentence(randRange(1, 3)).join('\r\n'),
-      likes: randRange(0, 999),
-      replies: randRange(0, 10),
-      postAt: this.displayDateTime(this.id + j),
-      subMessages: [...Array(randRange(0, 3)).keys()].map(k => ({
-        name: genName(),
-        icon: this.getIconImg( (this.id + k - 1) % 9 ),
+    let messages = [...Array(randRange(2, 6)).keys()].map( j => {
+     let subMessagesCount = randRange(0, 6)
+     return {
+        name: j == 0 ? author.name : genName(),
+        icon: j == 0 ? author.icon : this.getIconImg( (this.id + j - 1) % 9 ),
         text: genSentence(randRange(1, 3)).join('\r\n'),
         likes: randRange(0, 999),
-        postAt: this.displayDateTime(this.id + j * k),
-      }))
-    }))
+        replies: subMessagesCount,
+        postAt: this.displayDateTime(this.id + j),
+        subMessages: [...Array(subMessagesCount).keys()].map(k => ({
+          name: genName(),
+          icon: this.getIconImg( (this.id + k - 1) % 9 ),
+          text: genSentence(randRange(1, 3)).join('\r\n'),
+          likes: randRange(0, 999),
+          postAt: this.displayDateTime(this.id + j * k),
+        }))
+     }
+    })
     this.model = {
       author: author,      
       messages: messages
