@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="messages__form">
-        <form action="">
+        <form action="" @submit.prevent="onReply">
           <div>
             <input type="text" id="text" name="message[text]" v-model="inputText"/>
           </div>
@@ -83,6 +83,7 @@ export default {
       dialogImage: '',
       dialogIcon: '',
       inputText: '',
+      replyId: -1,
       viewReplies: [],
       model: {}
     }
@@ -164,7 +165,43 @@ export default {
         name = this._.get(message, "name", {})
       }
       console.log(`name: ${name}`)
-      this.inputText = `@${name}`
+      this.inputText = `@${name} `
+      this.replyId = messageId
+    },
+    onReply () {
+      console.log('onReply')
+
+      if (this.replyId == -1) {
+        let author = this._.get(this.model, 'author', {})
+        let id = this._.get(this.model, 'messages.length', 0)
+        this.model.messages.push({
+          id,
+          name: author.name,
+          icon: author.icon,
+          text: this.inputText,
+          likes: randRange(0, 999),
+          replies: 0,
+          postAt: this.displayDateTime(this.id + id),
+          subMessages: []
+        })
+      } else {
+        let author = this._.get(this.model, 'author', {})    
+        let messages = this._.get(this.model, `messages`, {})
+        let message = this._.find(messages, message => message.id === this.replyId)
+        let id = this._.get(message, 'subMessages.length', 0)
+        message.subMessages.push({
+          id,
+          name: author.name,
+          icon: author.icon,
+          text: this.inputText,
+          likes: randRange(0, 999),
+          replies: 0,
+          postAt: this.displayDateTime(this.id + id)
+        })
+      }
+
+      this.inputText = ''
+      this.replyId = -1
     }
   },
   mounted () {
