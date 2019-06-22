@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'ProfilePostAtSection',
+  name: 'ProfileSection',
   props: {
     id: String,
     name: String,

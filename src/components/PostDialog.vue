@@ -9,12 +9,12 @@
       </div>
       <div class="dialog__content__messages">
         <div class="messages__item" v-for="j in randRange(2, 6)" :key="j">
-          <message-item-profile-post-at-section
+          <message-item-profile-section
             :id="`profile-post-at-${j}`"
             :name="genName()"
             :icon="getIconImg( (id + j - 1) % 9 )"            
           >
-          </message-item-profile-post-at-section>
+          </message-item-profile-section>
           <div class="messages__item__second">
             <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
           </div>
@@ -29,13 +29,13 @@
           </div>          
           <div class="messages__item__fifth">
             <div class="messages__item" v-for="k in randRange(0, 3)" :key="k">
-              <message-item-profile-post-at-section
+              <message-item-profile-section
                 :id="`profile-post-at-${k}`"
                 :name="genName()"
                 :icon="getIconImg( (id + k - 1) % 9 )"
                 :post-at="displayDateTime()"
               >
-              </message-item-profile-post-at-section>
+              </message-item-profile-section>
               <div class="messages__item__second">
                 <pre>{{ genSentence(randRange(1, 3)).join('\r\n') }}</pre>
               </div>
@@ -65,7 +65,7 @@
 
 <script>
 import MessageItemLikeReplyItem from './message_components/LikeReplyItem'
-import MessageItemProfilePostAtSection from  './message_components/ProfilePostAtSection'
+import MessageItemProfileSection from  './message_components/ProfileSection'
 import { randRange, genSentence, genName } from './../generator'
 import { formatDistance, subSeconds } from 'date-fns'
 
@@ -75,7 +75,7 @@ export default {
     id: Number
   },
   components: {
-    MessageItemLikeReplyItem, MessageItemProfilePostAtSection
+    MessageItemLikeReplyItem, MessageItemProfileSection
   },
   data () {
     return {
