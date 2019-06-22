@@ -114,10 +114,18 @@ export default {
       }, { t, d })
 
       let s = new Array
-      for(let i = 0; i < d.length; i++) {
-        if (result[i] > 0) {
-          s.push(`${result[i]}${units[i]}`)
-        }
+      if (d[0] > 0) {
+       s.push(`${d[0]}${units[0]}`) // y
+      } else if (d[1] > 0) {
+       s.push(`${d[1]}${units[1]}`) // w
+      } else if (d[2] > 0) {
+       s.push(`${d[2]}${units[2]}`) // d
+      } else if (d[3] > 0) {
+       s.push(`${d[3]}${units[3]}`) // d
+      } else if (d[4] > 0) {
+       s.push(`${d[4]}${units[4]}`) // d
+      } else if (d[5] > 0) {
+       s.push(`${d[5]}${units[5]}`) // s
       }
 
       return s.join(' ')
