@@ -1,5 +1,5 @@
 <template>
-  <div class="messages__item__third">
+  <div class="messages__item__third noselect">
     <div class="messages__item__third__item post-at">
       <div>{{ postAt }}</div>
     </div>

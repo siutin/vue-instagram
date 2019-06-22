@@ -2,7 +2,7 @@
   <div id="dialog">
     <div class="dialog__image" :style="{ backgroundImage: dialogImage }"></div>
     <div class="dialog__content">
-      <div class="profile dialog__content__profile">
+      <div class="profile dialog__content__profile noselect">
         <div class="icon icon-normal" :style="{ backgroundImage: `url(${_.get(model, 'author.icon')})` }"></div>
         <div class="name">{{ _.get(model, "author.name") }}</div>
         <div class="follow"><a href="">follow</a></div>
@@ -24,7 +24,7 @@
           :replies="_.get(message,'replies')"
           :post-at="_.get(message,'postAt')"
           ></message-item-bottom-item>
-          <div class="messages__item__forth">
+          <div class="messages__item__forth noselect">
             <div class="view__replies" @click="clickOnViewReplies(j)" v-if="_.get(message, 'subMessages').length > 0"> View Replies </div>            
           </div>          
           <div class="messages__item__fifth" v-show="canShowReplies(j)">
@@ -312,6 +312,8 @@ export default {
   
   font-size: 7pt;
   color: #444;
+  
+  cursor: pointer;
 }
 
 .view__replies:before {

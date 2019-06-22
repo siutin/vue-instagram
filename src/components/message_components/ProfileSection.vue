@@ -1,5 +1,5 @@
 <template>
-  <div class="messages__item__first">
+  <div class="messages__item__first noselect">
     <div class="profile">
       <div class="icon icon-small" :style="{ backgroundImage: `url(${icon})` }"></div>
       <div class="name">{{ name }}</div>
