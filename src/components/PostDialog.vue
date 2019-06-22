@@ -22,7 +22,7 @@
           :id="`bottom-${j}`"
           :likes="randRange(0, 999)"
           :replies="randRange(0, 10)"
-          :post-at="displayDateTime()"
+          :post-at="displayDateTime([j, j + 1, j + 2, j + 3 , j + 4, j + 5])"
           ></message-item-bottom-item>
           <div class="messages__item__forth">
             <div class="view__replies"> View Replies </div>            
@@ -33,7 +33,6 @@
                 :id="`profile-post-at-${k}`"
                 :name="genName()"
                 :icon="getIconImg( (id + k - 1) % 9 )"
-                :post-at="displayDateTime()"
               >
               </message-item-profile-section>
               <div class="messages__item__second">
@@ -42,7 +41,7 @@
               <message-item-bottom-item 
               :id="`bottom-${k}`"
               :likes="randRange(0, 999)"
-              :post-at="displayDateTime()"
+              :post-at="displayDateTime([0, j, k, j + k])"
               ></message-item-bottom-item>
 
             </div>
@@ -97,9 +96,43 @@ export default {
     getIconImg (id) {
       return require(`./../assets/icons/${id}.jpeg`)
     },
-    displayDateTime () {
-      return formatDistance(subSeconds(new Date(), randRange(0, 86400*365)), new Date(), { addSuffix: true })
-    }
+    displayDateTime (arr) {
+
+      let different = new Date() - this.randDate(arr)
+      console.log(different)
+
+      let unitValues = [31536000, 604800, 86400, 3600, 60, 1] // (year week day hour minute second)
+      let units = ['y', 'w', 'd', 'h', 'm', 's']
+      
+      let t = different / 1000
+      let d = new Array(6).fill(0)
+    
+      let result = new Array(6).fill(0)
+      for(let i = 0; i < unitValues.length; i++) {
+        let a = Math.round( t / unitValues[i] )
+        result[i] += a
+        t = t % unitValues[i]
+      }
+
+      let s = new Array
+      for(let i = 0; i < d.length; i++) {
+        if (result[i] > 0) {
+          s.push(`${result[i]}${units[i]}`)
+        }
+      }
+
+      return s.join(' ')
+    },
+    randDate (arr) {
+      let units = [31536000, 604800, 86400, 3600, 60, 1] // (year week day hour minute second)
+      
+      let value = 0
+      for(let i = 0; i < arr.length; i++){
+        value += arr[i] * units[i]
+      }
+      
+      return subSeconds(new Date(), value)
+    },
   },
   mounted () {
     this.dialogIcon =  `url(${this.getIconImg(this.id % 9 )})`
