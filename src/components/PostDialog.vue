@@ -150,6 +150,21 @@ export default {
     },
     clickOnReplyButton (messageId, subMessageId) {
       console.log(`clickOnReplyButton - ${messageId} - ${subMessageId}`)
+      if (typeof messageId !== 'number') {
+        return
+      }
+      let messages = this._.get(this.model, `messages`, {})
+      let message = this._.find(messages, message => message.id === messageId)
+      let name = ""
+      if (typeof subMessageId === 'number') {
+        let subMessages = this._.get(message, 'subMessages', {})
+        let subMessage = this._.find(subMessages, message => message.id === subMessageId)
+        name = this._.get(subMessage, "name", {})
+      } else {
+        name = this._.get(message, "name", {})
+      }
+      console.log(`name: ${name}`)
+      this.inputText = `@${name}`
     }
   },
   mounted () {
