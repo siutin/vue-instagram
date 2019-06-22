@@ -99,7 +99,6 @@ export default {
     displayDateTime (arr) {
 
       let different = new Date() - this.randDate(arr)
-      console.log(different)
 
       let unitValues = [31536000, 604800, 86400, 3600, 60, 1] // (year week day hour minute second)
       let units = ['y', 'w', 'd', 'h', 'm', 's']
