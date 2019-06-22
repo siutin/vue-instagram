@@ -198,8 +198,8 @@ export default {
   .dialog__image {
     max-width: 1024px;
     max-height: 1024px;
-    width: 60vh;
-    height: 60vh;
+    width:  65vh;
+    height: 65vh;
   }
 }
 
@@ -207,8 +207,8 @@ export default {
   .dialog__image {
     max-width: 1024px;
     max-height: 1024px;
-    width: 60vw;
-    height: 60vw;
+    width: 65vw;
+    height: 65vw;
   }
 }
 
@@ -385,8 +385,8 @@ export default {
     .dialog__image {
       max-width: 512px;
       max-height: 512px;
-      width: 50vh;
-      height: 50vh;
+      width: 55vh;
+      height: 55vh;
     }
   }
 
@@ -394,8 +394,8 @@ export default {
     .dialog__image {
       max-width: 512px;
       max-height: 512px;
-      width: 50vw;
-      height: 50vw;
+      width: 55vw;
+      height: 55vw;
     }
   }
 
@@ -417,15 +417,15 @@ export default {
   @media (orientation: landscape) {
     .dialog__image {
       /*  */
-      width: 50vh;
-      height: 50vh;
+      width: 55vh;
+      height: 55vh;
     }
   }
 
   @media (orientation: portrait) {
     .dialog__image {
-      width: 50vw;
-      height: 50vw;
+      width: 55vw;
+      height: 55vw;
     }
   }
 
