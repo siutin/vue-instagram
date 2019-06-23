@@ -80,10 +80,6 @@ export default {
     padding: 0;
   }
 
-  * {
-      -webkit-overflow-scrolling: touch;
-  }
-
   input:focus, textarea:focus {
       outline: 0;
   }
@@ -96,7 +92,7 @@ export default {
 
     /* retain dialog position */
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   #container {
@@ -104,6 +100,9 @@ export default {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1em;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
    header {
@@ -202,6 +201,10 @@ export default {
   ##Screen = B/w 320px to 479px
 */
 @media (max-width: 480px) {
+
+  #app {
+    overflow-y: initial;
+  }
 
   .grid > div.item {
     flex-basis: calc(100% - 20px);
