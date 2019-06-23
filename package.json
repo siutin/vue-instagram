@@ -7,6 +7,11 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "author": {
+    "name": "Martin Chan",
+    "email": "chankayuemartin@gmail.com",
+    "url": "http://martinchan.me/"
+  },
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
