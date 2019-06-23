@@ -80,6 +80,10 @@ export default {
     padding: 0;
   }
 
+  * {
+      -webkit-overflow-scrolling: touch;
+  }
+
   input:focus, textarea:focus {
       outline: 0;
   }
