@@ -69,11 +69,12 @@ import MessageItemBottomItem from './message_components/BottomItem'
 import MessageItemProfileSection from  './message_components/ProfileSection'
 import { randRange, genSentence, genName } from './../generator'
 import { formatDistance, subSeconds } from 'date-fns'
+import { parse } from 'date-fns/esm';
 
 export default {
   name: 'PostDialog',
   props: {
-    id: Number
+    id: String
   },
   components: {
     MessageItemBottomItem, MessageItemProfileSection
@@ -202,41 +203,50 @@ export default {
 
       this.inputText = ''
       this.replyId = -1
-    }
-  },
-  mounted () {
-    this.dialogIcon =  `url(${this.getIconImg(this.id % 9 )})`
-    this.dialogImage = `url(${this.getBackgroundImage(this.id, 1024)})`
+    },
+    setup() {
+      this.dialogIcon =  `url(${this.getIconImg(this.id % 9 )})`
+      this.dialogImage = `url(${this.getBackgroundImage(this.id, 1024)})`
 
-    let author = {
-        name: genName(),
-        icon: this.getIconImg(this.id % 9 )
-    }
-
-    let messages = [...Array(randRange(2, 6)).keys()].map( j => {
-     let subMessagesCount = randRange(0, 6)
-     return {
-        id: j,
-        name: j == 0 ? author.name : genName(),
-        icon: j == 0 ? author.icon : this.getIconImg( (this.id + j - 1) % 9 ),
-        text: genSentence(randRange(1, 3)).join('\r\n'),
-        likes: randRange(0, 999),
-        replies: subMessagesCount,
-        postAt: this.displayDateTime(this.id + j),
-        subMessages: [...Array(subMessagesCount).keys()].map(k => ({
-          id: k,
+      let author = {
           name: genName(),
-          icon: this.getIconImg( (this.id + k - 1) % 9 ),
+          icon: this.getIconImg(this.id % 9 )
+      }
+
+      let messages = [...Array(randRange(2, 6)).keys()].map( j => {
+      let subMessagesCount = randRange(0, 6)
+      return {
+          id: j,
+          name: j == 0 ? author.name : genName(),
+          icon: j == 0 ? author.icon : this.getIconImg( (this.id + j - 1) % 9 ),
           text: genSentence(randRange(1, 3)).join('\r\n'),
           likes: randRange(0, 999),
-          postAt: this.displayDateTime(this.id + j * k),
-        }))
-     }
-    })
-    this.model = {
-      author: author,
-      messages: messages
+          replies: subMessagesCount,
+          postAt: this.displayDateTime(this.id + j),
+          subMessages: [...Array(subMessagesCount).keys()].map(k => ({
+            id: k,
+            name: genName(),
+            icon: this.getIconImg( (this.id + k - 1) % 9 ),
+            text: genSentence(randRange(1, 3)).join('\r\n'),
+            likes: randRange(0, 999),
+            postAt: this.displayDateTime(this.id + j * k),
+          }))
+      }
+      })
+      this.model = {
+        author: author,
+        messages: messages
+      }
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log('beforeRouteEnter - PostDialog')
+    next(vm => (vm.setup.bind(vm))())
+  },
+   beforeRouteUpdate (to, from, next) {
+    console.log('beforeRouteUpdate - PostDialog')
+    this.setup()
+    next()
   }
 }
 </script>

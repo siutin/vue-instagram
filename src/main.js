@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueLazyload from 'vue-lazyload'
 import VueLodash from 'vue-lodash'
+import router from './router'
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
@@ -18,5 +19,6 @@ Vue.use(VueLodash)
 Vue.config.productionTip = false
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')
