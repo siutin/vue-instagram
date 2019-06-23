@@ -26,7 +26,7 @@
           @click-on-reply-button="() => clickOnReplyButton(j)"
           ></message-item-bottom-item>
           <div class="messages__item__forth noselect">
-            <div class="view__replies" @click="clickOnViewReplies(j)" v-if="_.get(message, 'subMessages').length > 0"> View Replies </div>
+            <div class="view__replies" @click="clickOnViewReplies(j)" v-if="_.get(message, 'subMessages').length > 0"> {{ canShowReplies(j) ? 'Hide' : 'View' }} Replies </div>
           </div>
           <div class="messages__item__fifth" v-show="canShowReplies(j)">
             <div class="messages__item" v-for="(subMessage, k) in _.get(message, 'subMessages')" :key="`${j}-${k}`">
