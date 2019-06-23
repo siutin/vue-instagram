@@ -3,9 +3,9 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import ExplorePage from './pages/Explore.vue'
-import PostDialog from './components/PostDialog.vue'
-import P404 from './P404.vue'
+const ExplorePage = () => import('./pages/Explore.vue')
+const PostDialog = () => import('./components/PostDialog.vue')
+const P404 = () => import('./P404.vue')
 
 export default new VueRouter({
   routes: [
