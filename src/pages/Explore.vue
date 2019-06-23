@@ -1,35 +1,36 @@
 <template>
   <div>
     <header>
-        <h1>Explorer</h1>
-      </header>
-      <Grid>
-        <template v-for="i in range(1, 90)">
-          <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
-            <thumbnail-item
-            v-if="isReady"
-            :id="id"
-            :width="width"
-            @click.native="clickOnTumbnail($event, id)"
-            @hover="hoverOnTumbnail"
-            >
-              <div class="thumbnail-item--hover fade" :id="id" v-if="currentHoverId === id">
-                <div class="cover"></div>
-                <div class="like-reply-section">
-                  <div>
-                    <div><img :src="require('@/assets/favorite-heart-button.png')" alt="" /></div>
-                    <div>{{ randRange(0, 999) }}</div>
-                  </div>
-                  <div>
-                    <div><img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" /></div>
-                    <div>{{ randRange(0, 999) }}</div>
-                  </div>
+      <div class="title">Explore</div>
+      <div class="subtitle">IG clone with VueJS. Made by <a href="http://martinchan.me" target="_blank">Martin Chan</a></div>
+    </header>
+    <Grid>
+      <template v-for="i in range(1, 90)">
+        <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
+          <thumbnail-item
+          v-if="isReady"
+          :id="id"
+          :width="width"
+          @click.native="clickOnTumbnail($event, id)"
+          @hover="hoverOnTumbnail"
+          >
+            <div class="thumbnail-item--hover fade" :id="id" v-if="currentHoverId === id">
+              <div class="cover"></div>
+              <div class="like-reply-section">
+                <div>
+                  <div><img :src="require('@/assets/favorite-heart-button.png')" alt="" /></div>
+                  <div>{{ randRange(0, 999) }}</div>
+                </div>
+                <div>
+                  <div><img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" /></div>
+                  <div>{{ randRange(0, 999) }}</div>
                 </div>
               </div>
-            </thumbnail-item>
-          </grid-item>
-        </template>
-      </Grid>
+            </div>
+          </thumbnail-item>
+        </grid-item>
+      </template>
+    </Grid>
   </div>
 </template>
 
@@ -82,6 +83,21 @@ export default {
 </script>
 
 <style scoped>
+
+.title {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.subtitle {
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+header a {
+  text-decoration: none;
+  color: #29a6e0;
+}
 
 .grid > div.item {
   text-align: center;
@@ -175,6 +191,37 @@ export default {
 }
 
 @media (max-width: 480px) {
+
+  header {
+    padding: 0.3em 10px 0.3em 10px;    
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: baseline;
+  
+    background-color: white;
+
+    z-index: 1000;    
+  }
+
+  .title {
+    font-size: 1.5em;
+    width: 100%;
+  }
+
+  .subtitle {
+    font-size: 0.7em;
+    width: 100%;
+    text-align: right;
+  }
+
+  .grid {
+    padding-top: 10px;
+  }
 
   .grid > div.item {
     flex-basis: calc(100% - 20px);
