@@ -80,6 +80,10 @@ export default {
     padding: 0;
   }
 
+  html {
+    padding: env(safe-area-inset); 
+  }
+  
   input:focus, textarea:focus {
       outline: 0;
   }
