@@ -45,6 +45,9 @@ export default {
       console.log(`clickOnLike - ${this.isCurrentLiked}`)
       this.isCurrentLiked = !this.isCurrentLiked
     }
+  },
+  mounted () {
+    this.isCurrentLiked = Math.round(Math.random()) == 1
   }
 }
 </script>
