@@ -76,14 +76,4 @@ export default {
   animation-direction: normal;
   animation-timing-function: ease-out;
 }
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 </style>

@@ -159,6 +159,25 @@ export default {
     background-size: contain;
   }
 
+  .fade, .fade-img[lazy=loaded] {
+      opacity: 0;
+      animation-name: fadein;
+      animation-duration: .2s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-direction: normal;
+      animation-timing-function: ease-out;
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   /*
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px
