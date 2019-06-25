@@ -1,29 +1,30 @@
-# instagram-clone-vue
+# vue-instagram
+An Instagram-Like WebApp written in VueJS
 
-## Project setup
-```
-npm install
-```
+Live Demo: https://instagram-clone-vue.netlify.com/#/explore
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Progress
+- [x] Explore
+- [x] View Post Detail
+ - [x] Like
+ - [x] Reply
+ - [x] Reply to someone
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Features
+* Fully Responsive, well-display on any devices (Desktop, iPhone, iPad, etc)
+* Zero CSS framework dependency
+* Customized Grid Thumbnail System
+* Image Lazy Loading
+* Routable modal dialog
+* Component-based architectural styles
+* BEM methodology
+* W3C Verified Code
+* Free Google Fonts
 
-### Run your tests
-```
-npm run test
-```
+## Credits
+* This Person Does Not Exist - [thispersondoesnotexist.com](https://thispersondoesnotexist.com)
+* Lorem Picsum - [picsum.photos](https://picsum.photos)
+* github:aruljohn/popular-baby-names - [github.com/aruljohn/popular-baby-names](https://github.com/aruljohn/popular-baby-names)
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Author
+* Martin Chan, osiutino
