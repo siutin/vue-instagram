@@ -80,6 +80,12 @@ export default {
   height: 1.4em;
 }
 
+.messages__item__third__item.like img {
+  /* this prevent the weird quality of like button during the animation */
+  -webkit-filter: contrast(100%);
+  filter: contrast(100%);
+}
+
 .messages__item__third__item.reply img {
   -webkit-filter: contrast(20%);
   filter: contrast(20%);
