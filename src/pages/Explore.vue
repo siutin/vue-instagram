@@ -38,19 +38,18 @@
 import Grid from './../components/Grid.vue'
 import GridItem from './../components/GridItem'
 import ThumbnailItem from './../components/ThumbnailItem'
-import PostDialog from './../components/PostDialog'
 import { randRange } from './../generator'
 
 export default {
   name: 'Explore',
     components: {
-     Grid, GridItem, ThumbnailItem, PostDialog
+     Grid, GridItem, ThumbnailItem
   },
   data () {
     return {
       currentHoverId: -1
     }
-  },  
+  },
   methods: {
     range (start, count) {
       return Array(count).fill(start).map((x, y) => x + y)
@@ -73,7 +72,7 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     console.log(`beforeRouteEnter - Explore`)
-    next(vm => {})
+    next()
   },
    beforeRouteUpdate (to, from, next) {
     console.log(`beforeRouteUpdate - Explore`)
@@ -193,7 +192,7 @@ header a {
 @media (max-width: 480px) {
 
   header {
-    padding: 0.3em 10px 0.3em 10px;    
+    padding: 0.3em 10px 0.3em 10px;
 
     position: fixed;
     top: 0;
@@ -202,10 +201,10 @@ header a {
 
     display: flex;
     align-items: baseline;
-  
+
     background-color: white;
 
-    z-index: 1000;    
+    z-index: 1000;
   }
 
   .title {

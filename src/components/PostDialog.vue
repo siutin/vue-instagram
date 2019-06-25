@@ -68,8 +68,7 @@
 import MessageItemBottomItem from './message_components/BottomItem'
 import MessageItemProfileSection from  './message_components/ProfileSection'
 import { randRange, genSentence, genName } from './../generator'
-import { formatDistance, subSeconds } from 'date-fns'
-import { parse } from 'date-fns/esm';
+import { subSeconds } from 'date-fns'
 
 export default {
   name: 'PostDialog',
@@ -120,18 +119,18 @@ export default {
       }, { t, d })
 
       let s = new Array
-      if (d[0] > 0) {
-       s.push(`${d[0]}${units[0]}`) // y
-      } else if (d[1] > 0) {
-       s.push(`${d[1]}${units[1]}`) // w
-      } else if (d[2] > 0) {
-       s.push(`${d[2]}${units[2]}`) // d
-      } else if (d[3] > 0) {
-       s.push(`${d[3]}${units[3]}`) // d
-      } else if (d[4] > 0) {
-       s.push(`${d[4]}${units[4]}`) // d
-      } else if (d[5] > 0) {
-       s.push(`${d[5]}${units[5]}`) // s
+      if (result.d[0] > 0) {
+       s.push(`${result.d[0]}${units[0]}`) // y
+      } else if (result.d[1] > 0) {
+       s.push(`${result.d[1]}${units[1]}`) // w
+      } else if (result.d[2] > 0) {
+       s.push(`${result.d[2]}${units[2]}`) // d
+      } else if (result.d[3] > 0) {
+       s.push(`${result.d[3]}${units[3]}`) // d
+      } else if (result.d[4] > 0) {
+       s.push(`${result.d[4]}${units[4]}`) // d
+      } else if (result.d[5] > 0) {
+       s.push(`${result.d[5]}${units[5]}`) // s
       }
 
       return s.join(' ')
@@ -186,7 +185,7 @@ export default {
           subMessages: []
         })
       } else {
-        let author = this._.get(this.model, 'author', {})    
+        let author = this._.get(this.model, 'author', {})
         let messages = this._.get(this.model, `messages`, {})
         let message = this._.find(messages, message => message.id === this.replyId)
         let id = this._.get(message, 'subMessages.length', 0)

@@ -14,7 +14,7 @@ export default new VueRouter({
       name: 'explore',
       components: {
         page: ExplorePage
-      }    
+      }
     },
     {
       path: '/explore/p/:id',
@@ -22,7 +22,7 @@ export default new VueRouter({
       components: {
         page: ExplorePage,
         dialog: PostDialog
-      }, 
+      },
       props: {
         page: false,
         dialog: true
@@ -34,6 +34,6 @@ export default new VueRouter({
         page: P404
       }
     }
-    
+
   ]
 })

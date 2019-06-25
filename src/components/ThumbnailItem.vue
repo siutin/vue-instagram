@@ -29,8 +29,6 @@ export default {
     methods: {
       getBackgroundImage (id, width) {
         return `https://picsum.photos/id/${id}/${width}`
-      },
-      handler (component) {
       }
     },
     watch: {
