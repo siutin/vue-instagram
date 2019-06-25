@@ -102,9 +102,9 @@ export default {
     getIconImg (id) {
       return require(`./../assets/icons/${id}.jpeg`)
     },
-    displayDateTime (x) {
+    displayDateTime (x, y) {
 
-      let different = new Date() - this.randDate(x)
+      let different = new Date() - this.randDate(x, y)
 
       let unitValues = [31536000, 604800, 86400, 3600, 60, 1] // (year week day hour minute second)
       let units = ['y', 'w', 'd', 'h', 'm', 's']
@@ -135,8 +135,8 @@ export default {
 
       return s.join(' ')
     },
-    randDate (x) {
-      return subSeconds(new Date(), this.randRange(3600 * x * x, 3600 * x * x * 2))
+    randDate (x, y) {
+      return subSeconds(new Date(), this.randRange(3600 * x, 86400 * y))
     },
     canShowReplies (repliesId) {
       return this.viewReplies.includes(repliesId)
@@ -181,7 +181,7 @@ export default {
           text: this.inputText,
           likes: randRange(0, 999),
           replies: 0,
-          postAt: this.displayDateTime(this.id + id),
+          postAt: this.displayDateTime(this.id, id),
           subMessages: []
         })
       } else {
@@ -196,7 +196,7 @@ export default {
           text: this.inputText,
           likes: randRange(0, 999),
           replies: 0,
-          postAt: this.displayDateTime(this.id + id)
+          postAt: this.displayDateTime(this.id, id)
         })
       }
 
@@ -221,14 +221,14 @@ export default {
           text: genSentence(randRange(1, 3)).join('\r\n'),
           likes: randRange(0, 100),
           replies: subMessagesCount,
-          postAt: this.displayDateTime(this.id + j),
+          postAt: this.displayDateTime(this.id, j),
           subMessages: [...Array(subMessagesCount).keys()].map(k => ({
             id: k,
             name: genName(),
             icon: this.getIconImg( (this.id + k - 1) % 9 ),
             text: genSentence(randRange(1, 3)).join('\r\n'),
             likes: randRange(0, 100),
-            postAt: this.displayDateTime(this.id + j * k),
+            postAt: this.displayDateTime(this.id, j * k),
           }))
       }
       })
