@@ -5,7 +5,7 @@
     </div>
     <div class="messages__item__third__item like">
       <div>{{ getLikes }}</div>
-      <div @click="clickOnLike"><img v-lazy="getLikeImg" class="fade-img" /></div>
+      <div @click="clickOnLike"><img v-lazy="getLikeImg" class="fade-img" :key="`${id}-${isCurrentLiked}`" /></div>
     </div>
     <div class="messages__item__third__item reply" @click="$emit('click-on-reply-button', id)">
       <div v-if="isShowReplyCount" >{{ this.replies }}</div>
