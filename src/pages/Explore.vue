@@ -5,7 +5,7 @@
       <div class="subtitle">IG clone with VueJS. Made by <a href="http://martinchan.me" target="_blank">Martin Chan</a></div>
     </header>
     <Grid>
-      <template v-for="i in range(1, 90)">
+      <template v-for="i in _.shuffle(range(1, 100))">
         <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
           <thumbnail-item
           v-if="isReady"
@@ -19,11 +19,11 @@
               <div class="like-reply-section">
                 <div>
                   <div><img :src="require('@/assets/favorite-heart-button.png')" alt="" /></div>
-                  <div>{{ randRange(0, 999) }}</div>
+                  <div>{{ randRange(0, 100) }}</div>
                 </div>
                 <div>
                   <div><img :src="require('@/assets/comment-black-oval-bubble-shape.png')" alt="" /></div>
-                  <div>{{ randRange(0, 999) }}</div>
+                  <div>{{ randRange(0, 50) }}</div>
                 </div>
               </div>
             </div>
