@@ -81,9 +81,9 @@ export default {
   }
 
   html {
-    padding: env(safe-area-inset); 
+    padding: env(safe-area-inset);
   }
-  
+
   input:focus, textarea:focus {
       outline: 0;
   }

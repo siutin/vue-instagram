@@ -185,7 +185,7 @@ export default {
           subMessages: []
         })
       } else {
-        let author = this._.get(this.model, 'author', {})    
+        let author = this._.get(this.model, 'author', {})
         let messages = this._.get(this.model, `messages`, {})
         let message = this._.find(messages, message => message.id === this.replyId)
         let id = this._.get(message, 'subMessages.length', 0)

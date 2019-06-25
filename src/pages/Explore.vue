@@ -49,7 +49,7 @@ export default {
     return {
       currentHoverId: -1
     }
-  },  
+  },
   methods: {
     range (start, count) {
       return Array(count).fill(start).map((x, y) => x + y)
@@ -192,7 +192,7 @@ header a {
 @media (max-width: 480px) {
 
   header {
-    padding: 0.3em 10px 0.3em 10px;    
+    padding: 0.3em 10px 0.3em 10px;
 
     position: fixed;
     top: 0;
@@ -201,10 +201,10 @@ header a {
 
     display: flex;
     align-items: baseline;
-  
+
     background-color: white;
 
-    z-index: 1000;    
+    z-index: 1000;
   }
 
   .title {
