@@ -38,13 +38,12 @@
 import Grid from './../components/Grid.vue'
 import GridItem from './../components/GridItem'
 import ThumbnailItem from './../components/ThumbnailItem'
-import PostDialog from './../components/PostDialog'
 import { randRange } from './../generator'
 
 export default {
   name: 'Explore',
     components: {
-     Grid, GridItem, ThumbnailItem, PostDialog
+     Grid, GridItem, ThumbnailItem
   },
   data () {
     return {
@@ -73,7 +72,7 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     console.log(`beforeRouteEnter - Explore`)
-    next(vm => {})
+    next()
   },
    beforeRouteUpdate (to, from, next) {
     console.log(`beforeRouteUpdate - Explore`)
