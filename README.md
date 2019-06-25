@@ -22,9 +22,9 @@ Live Demo: https://instagram-clone-vue.netlify.com/#/explore
 * Free Google Fonts
 
 ## Credits
-* This Person Does Not Exist - https://thispersondoesnotexist.com
-* Lorem Picsum - https://picsum.photos
-* github:aruljohn/popular-baby-names
+* This Person Does Not Exist - [thispersondoesnotexist.com](https://thispersondoesnotexist.com)
+* Lorem Picsum - [picsum.photos](https://picsum.photos)
+* github:aruljohn/popular-baby-names - [github.com/aruljohn/popular-baby-names](https://github.com/aruljohn/popular-baby-names)
 
 ## License
 
