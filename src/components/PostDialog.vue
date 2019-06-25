@@ -1,9 +1,9 @@
 <template>
   <div id="dialog">
-    <div class="dialog__image" :style="{ backgroundImage: dialogImage }"></div>
+    <div class="dialog__image fade-img" v-lazy:background-image="dialogImage"></div>
     <div class="dialog__content">
       <div class="profile dialog__content__profile noselect">
-        <div class="icon icon-normal" :style="{ backgroundImage: `url(${_.get(model, 'author.icon')})` }"></div>
+        <div class="icon icon-normal fade-img" v-lazy:background-image="_.get(model, 'author.icon')"></div>
         <div class="name">{{ _.get(model, "author.name") }}</div>
         <div class="follow"><a href="">follow</a></div>
       </div>
@@ -204,8 +204,8 @@ export default {
       this.replyId = -1
     },
     setup() {
-      this.dialogIcon =  `url(${this.getIconImg(this.id % 9 )})`
-      this.dialogImage = `url(${this.getBackgroundImage(this.id, 1024)})`
+      this.dialogIcon =  `${this.getIconImg(this.id % 9 )}`
+      this.dialogImage = `${this.getBackgroundImage(this.id, 1024)}`
 
       let author = {
           name: genName(),

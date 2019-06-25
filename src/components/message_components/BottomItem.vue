@@ -5,11 +5,11 @@
     </div>
     <div class="messages__item__third__item like">
       <div>{{ getLikes }}</div>
-      <div @click="clickOnLike"><img :src="getLikeImg" /></div>
+      <div @click="clickOnLike"><img v-lazy="getLikeImg" class="fade-img" /></div>
     </div>
     <div class="messages__item__third__item reply" @click="$emit('click-on-reply-button', id)">
       <div v-if="isShowReplyCount" >{{ this.replies }}</div>
-      <div><img :src="require('@/assets/comment-white-oval-bubble.png')" /></div>
+      <div><img v-lazy="require('@/assets/comment-white-oval-bubble.png')" class="fade-img" /></div>
     </div>
   </div>
 </template>

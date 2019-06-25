@@ -1,7 +1,7 @@
 <template>
   <div class="messages__item__first noselect">
     <div class="profile">
-      <div class="icon icon-small" :style="{ backgroundImage: `url(${icon})` }"></div>
+      <div class="icon icon-small fade-img" v-lazy:background-image="icon"></div>
       <div class="name">{{ name }}</div>
     </div>
   </div>
