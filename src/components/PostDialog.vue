@@ -217,7 +217,7 @@ export default {
       return {
           id: j,
           name: j == 0 ? author.name : genName(),
-          icon: j == 0 ? author.icon : this.getIconImg( (this.id + j - 1) % 9 ),
+          icon: j == 0 ? author.icon : this.getIconImg( randRange(0, 8) ),
           text: genSentence(randRange(1, 3)).join('\r\n'),
           likes: randRange(0, 100),
           replies: subMessagesCount,
@@ -225,7 +225,7 @@ export default {
           subMessages: [...Array(subMessagesCount).keys()].map(k => ({
             id: k,
             name: genName(),
-            icon: this.getIconImg( (this.id + k - 1) % 9 ),
+            icon: this.getIconImg( randRange(0, 8) ),
             text: genSentence(randRange(1, 3)).join('\r\n'),
             likes: randRange(0, 100),
             postAt: this.displayDateTime(this.id, j * k),

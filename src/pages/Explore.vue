@@ -5,7 +5,7 @@
       <div class="subtitle">IG clone with VueJS. Made by <a href="http://martinchan.me" target="_blank">Martin Chan</a></div>
     </header>
     <Grid>
-      <template v-for="i in _.shuffle(range(1, 100))">
+      <template v-for="i in _.take(_.shuffle(range(1, 1000)), 100)">
         <grid-item :id="i" :key="i" v-slot="{ id, width, isReady }">
           <thumbnail-item
           v-if="isReady"
