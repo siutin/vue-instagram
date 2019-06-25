@@ -1,5 +1,5 @@
 <template>
-  <lazy-component @show="handler">
+  <lazy-component>
     <div class="loading"></div>
     <div
       @mouseover="isHover = true"
