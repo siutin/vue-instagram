@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    clickOnLike (e) {
+    clickOnLike () {
       console.log(`clickOnLike - ${this.isCurrentLiked}`)
       this.isCurrentLiked = !this.isCurrentLiked
     }
