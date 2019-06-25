@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    closeDialog(e) {
+    closeDialog() {
       console.log("closeDialog")
       this.$router.push({ name: 'explore' })
     },
