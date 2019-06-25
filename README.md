@@ -1,29 +1,37 @@
-# instagram-clone-vue
+# vue-instagram
+An Instagram-Like WebApp written in VueJS
 
-## Project setup
-```
-npm install
-```
+Live Demo: https://instagram-clone-vue.netlify.com/#/explore
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Progress
+- [x] Explore
+- [x] View Post Detail
+ - [x] Like
+ - [x] Reply
+ - [x] Reply to someone
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Features
+* Fully Responsive, well-display on any devices (Desktop, iPhone, iPad, etc)
+* Zero CSS framework dependency
+* Customized Grid Thumbnail System
+* Image Lazy Loading
+* Routable modal dialog
+* Component-based architectural styles
+* BEM methodology
+* W3C Verified Code
+* Free Google Fonts
 
-### Run your tests
-```
-npm run test
-```
+## Credits
+* This Person Does Not Exist - https://thispersondoesnotexist.com
+* Lorem Picsum - https://picsum.photos
+* github:aruljohn/popular-baby-names
 
-### Lints and fixes files
-```
-npm run lint
-```
+## License
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+    Copyright (c) 2019 Martin Chan, osiutino
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
