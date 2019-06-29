@@ -1,7 +1,7 @@
 <template>
   <vue100vh :css="{height: '100rvh'}">
     <div id="app">
-      <div id="container" v-if="!isMobile || (isMobile && !isShowDialog)">
+      <div id="container" v-show="!isMobile || (isMobile && !isShowDialog)">
         <router-view name="page"/>
       </div>
       <div id="dialog-container" class="fade" v-if="isShowDialog">
