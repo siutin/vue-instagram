@@ -84,6 +84,10 @@ export default {
     padding: env(safe-area-inset);
   }
 
+  body {
+    background-color: white;
+  }
+
   input:focus, textarea:focus {
       outline: 0;
   }
