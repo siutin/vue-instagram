@@ -6,7 +6,7 @@ import VueLodash from 'vue-lodash'
 import router from './router'
 
 Vue.use(VueLazyload, {
-  preLoad: 1.3,
+  preLoad: 2.6,
   lazyComponent: true,
   observer: true,
   observerOptions: {
